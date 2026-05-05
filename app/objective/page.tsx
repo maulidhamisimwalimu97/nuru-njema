@@ -14,20 +14,36 @@ export default function ConsultationPage() {
     <div className="min-h-screen bg-white">
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/23.jpeg"
+            alt="Nuru Njema Objectives"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6">
-              Our <span className="text-cyan-600">Objectives</span>
+
+            <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+              Our <span className="text-cyan-400">Objectives</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-sans">
+
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
               At Nuru Njema Foundation, our mission is to empower youth through digital skills training,
               innovation, and mentorship that creates opportunities for a better and sustainable future.
             </p>
+
           </div>
         </div>
-      </section>
 
+      </section>
      {/* Main Content */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -10,23 +10,35 @@ export default function AboutPage() {
       
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <section className="relative py-24">
 
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6">
-              About <span className="text-cyan-600">Nuru Njema Foundation</span>
-            </h1>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/23.jpeg"
+            alt="About Nuru Njema Foundation"
+            className="w-full h-full object-cover"
+          />
 
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-sans">
-              A youth-driven organization committed to empowering communities through digital skills,
-              education, innovation, and sustainable opportunities for growth.
-            </p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
 
-          </div>
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+            About <span className="text-cyan-400">Nuru Njema Foundation</span>
+          </h1>
+
+          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
+            A youth-driven organization committed to empowering communities through digital skills,
+            education, innovation, and sustainable opportunities for growth.
+          </p>
+
         </div>
       </section>
-      
+            
       {/* Our Story */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +71,7 @@ export default function AboutPage() {
 
             <div className="relative">
               <img
-                src="/images/nlogo.jpeg"
+                src="/images/nlogo.png"
                 alt="Nuru Njema Foundation activities"
                 className="rounded-lg shadow-xl"
               />

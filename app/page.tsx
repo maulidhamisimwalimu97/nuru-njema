@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ArrowUp } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -145,7 +146,7 @@ export default function HomePage() {
           {/* Image */}
           <div className="relative">
             <img
-              src="/images/nlogo.jpeg"
+              src="/images/nlogo.png"
               alt="Nuru Njema Foundation youth training session"
               className="rounded-lg shadow-xl object-cover"
             />
@@ -774,16 +775,33 @@ export default function HomePage() {
       </div>
     </section>
 
-      {/* BACK TO TOP */}
-      {showTopButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-cyan-600 text-white w-12 h-12 rounded-full shadow-lg"
-        >
-          ↑
-        </button>
-      )}
+    {/* BACK TO TOP */}
+    {showTopButton && (
+      <button
+        onClick={scrollToTop}
+        className="
+          fixed bottom-6 right-6
+          group
+          bg-gradient-to-br from-cyan-500 to-cyan-700
+          hover:from-cyan-400 hover:to-cyan-600
+          text-white
+          w-14 h-14
+          rounded-full
+          shadow-xl
+          flex items-center justify-center
+          transition-all duration-300
+          hover:scale-110
+          active:scale-95
+          z-50
+        "
+        aria-label="Back to top"
+      >
+        <ArrowUp className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1" />
 
+        {/* Glow */}
+        <span className="absolute inset-0 rounded-full bg-cyan-400 opacity-20 blur-xl group-hover:opacity-40 transition"></span>
+      </button>
+    )}
     </div>
   );
 }

@@ -18,7 +18,7 @@ import Link from "next/link"
 export default function EntrepreneurshipGuidancePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-50 to-white py-20">
@@ -221,15 +221,6 @@ export default function EntrepreneurshipGuidancePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400 font-sans">
-            © 2024 PMS Investment Services. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

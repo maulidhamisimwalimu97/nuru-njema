@@ -15,21 +15,37 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     {/* Hero Section */}
+      <section className="relative py-20">
+
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/23.jpeg"
+            alt="Nuru Njema Blogs"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6">
-              Our <span className="text-cyan-600">Blogs</span>
+
+            <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+              Our <span className="text-cyan-400">Blogs</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-sans">
+
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
               Discover inspiring stories, digital skills tips, success journeys, and insights
               from Nuru Njema Foundation as we empower youth through technology and innovation.
             </p>
+
           </div>
         </div>
-      </section>
 
+      </section>
       {/* Featured Post */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
