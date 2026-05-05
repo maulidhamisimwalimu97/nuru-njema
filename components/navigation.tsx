@@ -31,13 +31,13 @@ export default function Navigation() {
                   About Us
                 </Link>
                 <Link
-                  href="/programs"
+                  href="/program"
                   className="text-gray-600 hover:text-cyan-600 px-3 py-2 text-sm font-medium transition-colors"
                 >
                   Programs
                 </Link>
                 <Link
-                  href="/objectives"
+                  href="/objective"
                   className="text-gray-600 hover:text-cyan-600 px-3 py-2 text-sm font-medium transition-colors"
                 >
                   Objectives

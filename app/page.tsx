@@ -786,22 +786,22 @@ export default function HomePage() {
               <h4 className="text-lg font-serif font-bold mb-4">Programs</h4>
               <ul className="space-y-2 text-gray-400 font-sans">
                 <li>
-                  <Link href="/services/portfolio-management" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/services/digital" className="hover:text-cyan-400 transition-colors">
                     Digital Skills Training
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/wealth-planning" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/services/mentorship" className="hover:text-cyan-400 transition-colors">
                     Youth Mentorship
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/risk-assessment" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/services/innovation" className="hover:text-cyan-400 transition-colors">
                     Innovation Support
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/tax-optimization" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/services/entrepreneurship" className="hover:text-cyan-400 transition-colors">
                     Entrepreneurship Guidance
                   </Link>
                 </li>
