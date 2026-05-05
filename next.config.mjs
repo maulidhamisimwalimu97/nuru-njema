@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
 
-export default nextConfig
+  // 🚀 REMOVE NEXT DEV TOOLS UI (your issue)
+  devIndicators: false,
+};
+
+export default nextConfig;

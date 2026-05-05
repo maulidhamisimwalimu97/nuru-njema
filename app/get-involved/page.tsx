@@ -39,7 +39,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Navigation />
+      
 
       {/* MAIN CONTENT */}
       <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8">
@@ -172,62 +172,6 @@ export default function RegisterPage() {
 
         </div>
       </div>
-
-      {/* FOOTER (NOW STICKS AT BOTTOM) */}
-      <footer className="bg-gray-900 text-white py-16 w-full mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-            <div>
-              <h3 className="text-2xl font-serif font-black text-cyan-400 mb-4">
-                Nuru Njema Foundation
-              </h3>
-              <p className="text-gray-400 font-sans mb-4">
-                Empowering youth through digital skills, innovation, and community transformation.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400 font-sans">
-                <li>Digital Skills Training</li>
-                <li>Youth Mentorship</li>
-                <li>Innovation Support</li>
-                <li>Entrepreneurship</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Organization</h4>
-              <ul className="space-y-2 text-gray-400 font-sans">
-                <li>About Us</li>
-                <li>Our Team</li>
-                <li>Careers</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Contact</h4>
-              <div className="space-y-2 text-gray-400 font-sans">
-                <p>info@nurunjemafoundation.org</p>
-                <p>+255 700 000 000</p>
-                <p>Dar es Salaam, Tanzania</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400 font-sans">
-              © 2026 Nuru Njema Foundation. All rights reserved.
-            </p>
-          </div>
-
-        </div>
-      </footer>
-
     </div>
   )
 }

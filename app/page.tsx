@@ -1,63 +1,56 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowUp } from "lucide-react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 import {
   ArrowRight,
   Shield,
   TrendingUp,
   Users,
   CheckCircle,
-  Star,
 } from "lucide-react";
-import Navigation from "@/components/navigation";
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-
   const [showTopButton, setShowTopButton] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setShowTopButton(window.scrollY > 300);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTopButton(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
 
   const fullText = "Empowering Youth Through Digital Skills";
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    let index = 0;
+    let i = 0;
 
     const interval = setInterval(() => {
-      index++;
-      setDisplayedText(fullText.slice(0, index));
-
-      if (index >= fullText.length) {
-        clearInterval(interval);
-      }
+      i++;
+      setDisplayedText(fullText.slice(0, i));
+      if (i >= fullText.length) clearInterval(interval);
     }, 50);
 
     return () => clearInterval(interval);
@@ -65,7 +58,6 @@ const scrollToTop = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-50 to-white py-20">
@@ -153,7 +145,7 @@ const scrollToTop = () => {
           {/* Image */}
           <div className="relative">
             <img
-              src="/images/23.jpeg"
+              src="/images/nlogo.jpeg"
               alt="Nuru Njema Foundation youth training session"
               className="rounded-lg shadow-xl object-cover"
             />
@@ -781,114 +773,17 @@ const scrollToTop = () => {
 
       </div>
     </section>
-    {showTopButton && (
-      <button
-        onClick={scrollToTop}
-        className="
-          fixed bottom-6 right-6
-          bg-cyan-600 hover:bg-cyan-700
-          text-white
-          w-12 h-12
-          rounded-full
-          shadow-lg
-          flex items-center justify-center
-          transition-all duration-300
-          z-50
-        "
-        aria-label="Back to top"
-      >
-        ↑
-      </button>
-    )}
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-            <div>
-              <h3 className="text-2xl font-serif font-black text-cyan-400 mb-4">
-                Nuru Njema Foundation
-              </h3>
-              <p className="text-gray-400 font-sans mb-4">
-                Empowering youth through digital skills, innovation, and community transformation.
-              </p>
-              <div className="text-sm text-gray-400 font-sans">
-                <p>Youth Empowerment & Digital Skills Initiative</p>
-                <p>Registered Non-Profit Organization</p>
-              </div>
-            </div>
+      {/* BACK TO TOP */}
+      {showTopButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-cyan-600 text-white w-12 h-12 rounded-full shadow-lg"
+        >
+          ↑
+        </button>
+      )}
 
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400 font-sans">
-                <li>
-                  <Link href="/services/digital" className="hover:text-cyan-400 transition-colors">
-                    Digital Skills Training
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/mentorship" className="hover:text-cyan-400 transition-colors">
-                    Youth Mentorship
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/innovation" className="hover:text-cyan-400 transition-colors">
-                    Innovation Support
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/entrepreneurship" className="hover:text-cyan-400 transition-colors">
-                    Entrepreneurship Guidance
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Organization</h4>
-              <ul className="space-y-2 text-gray-400 font-sans">
-                <li>
-                  <Link href="/about" className="hover:text-cyan-400 transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about#team" className="hover:text-cyan-400 transition-colors">
-                    Our Team
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-cyan-400 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-cyan-400 transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-serif font-bold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-400 font-sans">
-                <p>📧 info@nurunjemafoundation.org</p>
-                <p>📞 +255 700 000 000</p>
-                <p>📍 Dar es Salaam, Tanzania</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400 font-sans">
-              © 2026 Nuru Njema Foundation. All rights reserved by <a href="https://codescandy.com/" target="_blank">CodesCandy</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>.
-            </p>
-          </div>
-
-        </div>
-      </footer>
-      </div>
-      ) 
-      }
+    </div>
+  );
+}
