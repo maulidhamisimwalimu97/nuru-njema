@@ -15,7 +15,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/23.jpeg"
+            src="/images/5.jpg"
             alt="About Nuru Njema Foundation"
             className="w-full h-full object-cover"
           />
@@ -38,7 +38,7 @@ export default function AboutPage() {
 
         </div>
       </section>
-            
+
       {/* Our Story */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

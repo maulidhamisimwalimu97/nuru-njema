@@ -81,7 +81,7 @@ export default function ContactPage() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/23.jpeg"
+          src="/images/yo.jpeg"
           alt="Contact Nuru Njema Foundation"
           className="w-full h-full object-cover"
         />

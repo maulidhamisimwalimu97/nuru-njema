@@ -17,7 +17,7 @@ export default function PricingPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/23.jpeg"
+            src="/images/2.jpg"
             alt="Programs background"
             className="w-full h-full object-cover"
           />

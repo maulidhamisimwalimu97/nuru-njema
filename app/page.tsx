@@ -59,44 +59,40 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+{/* Hero Section */}
+<section className="bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center">
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            
-            {/* Animated Heading */}
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6">
-              {displayedText}
-              <span className="text-cyan-600 animate-pulse">|</span>
-            </h1>
+      <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6 drop-shadow-sm">
+        {displayedText}
+        <span className="text-cyan-600 animate-pulse">|</span>
+      </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/get-involved">
-                <Button
-                  size="lg"
-                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg"
-                >
-                  Get Involved
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Link href="/get-involved">
+          <Button
+            size="lg"
+            className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg shadow-md hover:shadow-lg transition"
+          >
+            Get Involved
+          </Button>
+        </Link>
 
-              <Link href="/about">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-cyan-600 text-cyan-600 hover:bg-cyan-50 px-8 py-4 text-lg bg-transparent"
-                >
-                  Learn More
-                </Button>
-              </Link>
-            </div>
+        <Link href="/about">
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-cyan-600 text-cyan-600 hover:bg-cyan-100 px-8 py-4 text-lg bg-transparent transition"
+          >
+            Learn More
+          </Button>
+        </Link>
+      </div>
 
-          </div>
-        </div>
-      </section>
-      
+    </div>
+  </div>
+</section>
     {/* Who We Are */}
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
