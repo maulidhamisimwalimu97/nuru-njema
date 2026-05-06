@@ -1,41 +1,39 @@
-# PMS Next.js Finance Website Template
+# 🌟 Nuru Njema Foundation Website
 
-#### Preview
+A modern, responsive website built with **Next.js** to empower youth through digital skills, innovation, and education in Tanzania.
 
- - [Demo](https://themewagon.github.io/pms-investment-services/)
+---
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/pms-investment-services/)
+## 🚀 About the Project
 
-## Getting Started
+**Nuru Njema Foundation** is a youth-focused organization committed to bridging the digital skills gap.  
+This website showcases programs, blogs, team members, and opportunities for youth engagement.
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/pms-investment-services.git
-```
-2. Install Dependencies
-```
-npm i
-```
-3. Run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
 
-## Author 
-```
-Design and code is completely written by CodesCandy and development team. 
-```
+- ⚡ Next.js (App Router)
+- ⚛️ React
+- 🎨 Tailwind CSS
+- 🧩 ShadCN UI Components
+- 🔤 Google Fonts (Montserrat & Open Sans)
+- 🚀 Vercel (Deployment)
 
-## License
+---
 
- - Design and Code is Copyright &copy; <a href="https://codescandy.com/" target="_blank">CodesCandy</a>
- - Licensed cover under [MIT]
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+## 📂 Features
+
+- 🌐 Fully responsive design
+- 🎯 Modern UI/UX with Tailwind CSS
+- 🧠 Animated hero text typing effect
+- 📚 Blog section
+- 👥 Team showcase
+- ❓ FAQ section (Accordion)
+- 📩 Contact-ready structure
+- ⬆️ Smooth "Back to Top" button
+- 🔗 Internal routing with Next.js
+
+---
+
+## 📁 Folder Structure
