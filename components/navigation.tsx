@@ -16,7 +16,7 @@ export default function Navigation() {
           {/* LOGO */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link href="/" className="text-2xl font-serif font-black text-cyan-600">
+              <Link href="/home" className="text-2xl font-serif font-black text-cyan-600">
                 Nuru Njema
               </Link>
             </div>

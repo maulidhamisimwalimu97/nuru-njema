@@ -10,7 +10,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  // 🚀 REMOVE NEXT DEV TOOLS UI (your issue)
   devIndicators: false,
 };
 
