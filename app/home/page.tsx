@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowUp } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -27,21 +26,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [showTopButton, setShowTopButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowTopButton(window.scrollY > 300);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const fullText = "Empowering Youth Through Digital Skills";
   const [displayedText, setDisplayedText] = useState("");
 
@@ -59,7 +43,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-{/* Hero Section */}
+ 
+      {/* Hero Section */}
 <section className="bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center">
@@ -771,33 +756,6 @@ export default function HomePage() {
       </div>
     </section>
 
-    {/* BACK TO TOP */}
-    {showTopButton && (
-      <button
-        onClick={scrollToTop}
-        className="
-          fixed bottom-6 right-6
-          group
-          bg-gradient-to-br from-cyan-500 to-cyan-700
-          hover:from-cyan-400 hover:to-cyan-600
-          text-white
-          w-14 h-14
-          rounded-full
-          shadow-xl
-          flex items-center justify-center
-          transition-all duration-300
-          hover:scale-110
-          active:scale-95
-          z-50
-        "
-        aria-label="Back to top"
-      >
-        <ArrowUp className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1" />
-
-        {/* Glow */}
-        <span className="absolute inset-0 rounded-full bg-cyan-400 opacity-20 blur-xl group-hover:opacity-40 transition"></span>
-      </button>
-    )}
     </div>
   );
 }

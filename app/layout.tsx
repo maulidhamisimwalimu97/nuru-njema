@@ -5,6 +5,8 @@ import "./globals.css";
 
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/back-to-top";
+import PageLoader from "@/components/page-loader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,6 +37,9 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-background text-foreground">
 
+        {/* LOADER */}
+        <PageLoader />
+
         {/* NAVIGATION */}
         <Navigation />
 
@@ -43,6 +48,9 @@ export default function RootLayout({
 
         {/* FOOTER */}
         <Footer />
+
+        {/* BACK TO TOP */}
+        <BackToTop />
 
       </body>
     </html>
