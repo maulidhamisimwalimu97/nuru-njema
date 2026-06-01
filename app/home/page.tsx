@@ -91,18 +91,18 @@ export default function HomePage() {
             </h2>
 
             <p className="text-lg text-gray-600 mb-6 font-sans leading-relaxed">
-              Nuru Njema Foundation is a youth-focused organization committed to
-              empowering young people through digital skills, innovation, and
-              education. We believe that technology is the key to unlocking
-              opportunities and transforming communities.
+              Nuru Njema Foundation is a Non-Governmental Organization registered under
+              the NGOs Act No. 24 of 2002 of Tanzania. The organization is committed to
+              empowering youth, women, children, and other vulnerable and marginalized groups
+              through digital skills, education, innovation, and social development programs.
             </p>
 
             <p className="text-lg text-gray-600 mb-8 font-sans leading-relaxed">
-              Our mission is to bridge the digital skills gap by providing training,
-              mentorship, and access to modern tools that help young people build
-              careers in the digital economy and become creators, not just users of technology.
+              Our mission is to bridge the digital divide by providing access to STEAM education,
+              entrepreneurship training, and digital transformation skills while working with
+              government, private sector, and development partners to promote sustainable
+              community development.
             </p>
-
             {/* Stats */}
             <div className="flex items-center space-x-8">
 
@@ -144,10 +144,11 @@ export default function HomePage() {
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
               Why Choose Nuru Njema Foundation?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              We don’t just teach digital skills — we empower young people to build careers,
-              create solutions, and lead innovation in their communities.
-            </p>
+            <p className="text-gray-600 font-sans text-center">
+              We empower youth through integrated digital literacy, STEAM education,
+              entrepreneurship development, and community-based innovation programs
+              aligned with national development priorities.
+            </p>          
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -24,19 +24,22 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-          <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
-            About <span className="text-cyan-400">Nuru Njema Foundation</span>
-          </h1>
+        <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+          About <span className="text-cyan-400">Nuru Njema Foundation</span>
+        </h1>
 
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
-            A youth-driven organization committed to empowering communities through digital skills,
-            education, innovation, and sustainable opportunities for growth.
-          </p>
+        <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
+          Nuru Njema Foundation is a registered Non-Governmental Organization under the
+          NGOs Act No. 24 of 2002 in Tanzania. The organization is committed to empowering
+          youth, women, children, and other vulnerable and marginalized groups through
+          digital skills, STEAM education, innovation, and sustainable development initiatives
+          in collaboration with stakeholders and partners.
+        </p>
 
-        </div>
+      </div>
       </section>
 
       {/* Our Story */}
@@ -51,21 +54,22 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-lg text-gray-600 mb-6 font-sans leading-relaxed">
-                Nuru Njema Foundation was established with a vision to empower young people
-                through access to digital skills, education, and innovation opportunities.
-                We believe that technology is a powerful tool for transforming lives and communities.
+                Nuru Njema Foundation was established as a youth-driven initiative
+                aimed at bridging the digital divide and promoting equal access to
+                education, innovation, and technology skills in Tanzania and beyond.
               </p>
 
               <p className="text-lg text-gray-600 mb-6 font-sans leading-relaxed">
-                Starting as a small initiative driven by passionate individuals, the foundation
-                has grown into a platform that supports youth in learning practical skills such as
-                web development, design, and digital literacy to prepare them for the modern world.
+                The organization focuses on empowering young people through STEAM education,
+                digital literacy, entrepreneurship training, and practical skills development
+                to prepare them for opportunities in the modern digital economy.
               </p>
 
               <p className="text-lg text-gray-600 mb-8 font-sans leading-relaxed">
-                Today, Nuru Njema Foundation continues to impact lives by training and mentoring
-                young people, helping them build careers, start projects, and contribute positively
-                to society through technology.
+                Today, the foundation works in partnership with government institutions,
+                private sector organizations, and community stakeholders to drive social
+                and economic transformation through technology, innovation, and inclusive
+                development programs.
               </p>
             </div>
 
@@ -81,7 +85,7 @@ export default function AboutPage() {
 
         </div>
       </section>
-      
+
       {/* Our Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,7 +95,8 @@ export default function AboutPage() {
               Our Core Values
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              The principles that guide how we empower youth and build stronger communities through digital skills.
+              The principles that guide our work in empowering youth and building inclusive,
+              innovative, and sustainable communities through digital transformation.
             </p>
           </div>
 
@@ -103,12 +108,15 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-cyan-600" />
                 </div>
-                <CardTitle className="text-xl font-serif font-bold">Integrity</CardTitle>
+                <CardTitle className="text-xl font-serif font-bold">
+                  Integrity
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 font-sans text-center">
-                  We act with honesty and transparency in all our programs,
-                  ensuring trust with the youth and communities we serve.
+                  We uphold transparency, accountability, and ethical leadership in all
+                  our activities as a registered NGO committed to serving communities fairly
+                  and responsibly.
                 </p>
               </CardContent>
             </Card>
@@ -119,12 +127,14 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="h-8 w-8 text-amber-600" />
                 </div>
-                <CardTitle className="text-xl font-serif font-bold">Excellence</CardTitle>
+                <CardTitle className="text-xl font-serif font-bold">
+                  Excellence
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 font-sans text-center">
-                  We are committed to delivering high-quality training,
-                  mentorship, and opportunities that meet global standards.
+                  We are committed to delivering high-quality training in digital skills,
+                  STEAM education, and innovation programs that meet both local and global standards.
                 </p>
               </CardContent>
             </Card>
@@ -135,12 +145,15 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="h-8 w-8 text-cyan-600" />
                 </div>
-                <CardTitle className="text-xl font-serif font-bold">Empowerment</CardTitle>
+                <CardTitle className="text-xl font-serif font-bold">
+                  Empowerment
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 font-sans text-center">
-                  We focus on equipping young people with practical digital skills
-                  that help them build careers, innovate, and create change.
+                  We empower youth, women, children, and marginalized groups by providing
+                  access to digital skills, entrepreneurship opportunities, and inclusive
+                  education programs that promote sustainable development.
                 </p>
               </CardContent>
             </Card>
@@ -268,8 +281,11 @@ export default function AboutPage() {
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
               Our Approach
             </h2>
+
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              A structured, practical, and hands-on learning approach that empowers youth with real-world digital skills.
+              Nuru Njema Foundation applies a structured, inclusive, and practical approach
+              to empower youth, women, children, and marginalized groups through digital
+              transformation and STEAM education.
             </p>
           </div>
 
@@ -283,10 +299,11 @@ export default function AboutPage() {
                   <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Practical Learning Method
+                      Practical & Experiential Learning
                     </h3>
                     <p className="text-gray-600 font-sans">
-                      We focus on hands-on training where youth learn by doing through real digital projects and exercises.
+                      We emphasize hands-on training where learners build real-world projects
+                      in digital skills, innovation, and technology applications.
                     </p>
                   </div>
                 </div>
@@ -296,10 +313,11 @@ export default function AboutPage() {
                   <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Skill-Based Development
+                      Competency-Based Skills Development
                     </h3>
                     <p className="text-gray-600 font-sans">
-                      Our programs are designed to build job-ready skills such as web development, design, and digital literacy.
+                      Our programs focus on building practical competencies in STEAM education,
+                      digital literacy, entrepreneurship, and innovation.
                     </p>
                   </div>
                 </div>
@@ -309,10 +327,11 @@ export default function AboutPage() {
                   <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Mentorship & Guidance
+                      Mentorship & Stakeholder Collaboration
                     </h3>
                     <p className="text-gray-600 font-sans">
-                      Experienced mentors guide learners step-by-step to ensure growth, confidence, and continuous improvement.
+                      We work with mentors, government institutions, and private sector partners
+                      to guide learners and expand opportunities for growth.
                     </p>
                   </div>
                 </div>
@@ -322,10 +341,11 @@ export default function AboutPage() {
                   <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Long-Term Empowerment
+                      Sustainable Youth Empowerment
                     </h3>
                     <p className="text-gray-600 font-sans">
-                      We focus on building sustainable digital careers that help youth grow beyond training into real opportunities.
+                      We focus on long-term empowerment by equipping youth with skills that
+                      enable them to create jobs, innovate, and contribute to community development.
                     </p>
                   </div>
                 </div>
@@ -348,26 +368,26 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-cyan-600">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-        <h2 className="text-4xl font-serif font-black text-white mb-4">
-          Join Our Movement Today
-        </h2>
+          <h2 className="text-4xl font-serif font-black text-white mb-4">
+            Join Our Movement Today
+          </h2>
 
-        <p className="text-xl text-cyan-100 mb-8 font-sans">
-          Be part of a growing community of young innovators building skills,
-          creating opportunities, and transforming their future through technology.
-        </p>
+          <p className="text-xl text-cyan-100 mb-8 font-sans">
+            Be part of a registered NGO working to empower youth, women, children,
+            and marginalized communities through digital skills, STEAM education,
+            and sustainable development initiatives.
+          </p>
 
-        <Link href="/join">
-          <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-sans">
-            Get Involved
-          </Button>
-        </Link>
+          <Link href="/join">
+            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-sans">
+              Get Involved
+            </Button>
+          </Link>
 
-      </div>
+        </div>
       </section>
-      
       </div>
       ) 
       }

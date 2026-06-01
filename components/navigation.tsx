@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -14,53 +15,44 @@ export default function Navigation() {
 
         <div className="flex justify-between items-center h-24">
 
-          {/* LEFT SIDE */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Link href="/home" className="text-2xl font-serif font-black text-cyan-600">
-                Nuru Njema
+        {/* LEFT SIDE - LOGO */}
+        <div className="flex items-center">
+          <Link href="/home" className="flex items-center">
+            <Image
+              src="/images/nlogo.png"
+              alt="Nuru Njema Logo"
+              width={220}
+              height={220}
+              className="h-16 w-auto md:h-24 lg:h-28 xl:h-32 object-contain"
+              priority
+            />
+          </Link>
+        </div>
+
+          {/* DESKTOP MENU */}
+          <div className="hidden md:block ml-8">
+            <div className="flex items-center space-x-1 lg:space-x-5">
+
+              <Link href="/about" className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300">
+                About Us
               </Link>
-              </div>
-            {/* DESKTOP MENU */}
-            <div className="hidden md:block ml-8">
-              <div className="flex items-center space-x-1 lg:space-x-5">
 
-                <Link
-                  href="/about"
-                  className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300"
-                >
-                  About Us
-                </Link>
+              <Link href="/program" className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300">
+                Programs
+              </Link>
 
-                <Link
-                  href="/program"
-                  className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300"
-                >
-                  Programs
-                </Link>
+              <Link href="/objective" className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300">
+                Objectives
+              </Link>
 
-                <Link
-                  href="/objective"
-                  className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300"
-                >
-                  Objectives
-                </Link>
+              <Link href="/blog" className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300">
+                Blogs
+              </Link>
 
-                <Link
-                  href="/blog"
-                  className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300"
-                >
-                  Blogs
-                </Link>
+              <Link href="/contact" className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300">
+                Contact
+              </Link>
 
-                <Link
-                  href="/contact"
-                  className="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-semibold transition-all duration-300"
-                >
-                  Contact
-                </Link>
-
-              </div>
             </div>
           </div>
 
@@ -102,68 +94,40 @@ export default function Navigation() {
 
         {/* MOBILE MENU */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white shadow-xl rounded-b-2xl animate-in slide-in-from-top duration-300">
+          <div className="md:hidden border-t border-gray-200 bg-white shadow-xl rounded-b-2xl">
 
             <div className="px-4 pt-4 pb-6 space-y-2">
 
-              <Link
-                href="/about"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/about" className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600" onClick={() => setIsMenuOpen(false)}>
                 About Us
               </Link>
 
-              <Link
-                href="/program"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/program" className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600" onClick={() => setIsMenuOpen(false)}>
                 Programs
               </Link>
 
-              <Link
-                href="/objective"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/objective" className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600" onClick={() => setIsMenuOpen(false)}>
                 Objectives
               </Link>
 
-              <Link
-                href="/blog"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/blog" className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600" onClick={() => setIsMenuOpen(false)}>
                 Blogs
               </Link>
 
-              <Link
-                href="/contact"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/contact" className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-cyan-50 hover:text-cyan-600" onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
 
               {/* MOBILE BUTTONS */}
               <div className="pt-4 space-y-3">
 
-                <Link
-                  href="/get-involved"
-                  className="block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <Link href="/get-involved" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white py-6 text-base rounded-xl shadow-md">
                     Get Involved
                   </Button>
                 </Link>
 
-                <Link
-                  href="/donate"
-                  className="block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <Link href="/donate" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-base rounded-xl shadow-md">
                     Donate
                   </Button>
@@ -177,5 +141,5 @@ export default function Navigation() {
 
       </div>
     </nav>
-  )
+  );
 }

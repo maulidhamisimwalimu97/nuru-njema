@@ -27,246 +27,150 @@ export default function ConsultationPage() {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+       {/* Content */}
+<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="text-center">
 
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
-              Our <span className="text-cyan-400">Objectives</span>
-            </h1>
+    <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+      Our <span className="text-cyan-400">Objectives</span>
+    </h1>
 
-            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
-              At Nuru Njema Foundation, our mission is to empower youth through digital skills training,
-              innovation, and mentorship that creates opportunities for a better and sustainable future.
-            </p>
+    <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
+      At Nuru Njema Foundation, our objectives are to empower young people through
+      digital skills development, innovation, and sustainable opportunities for social and economic growth.
+    </p>
 
-          </div>
-        </div>
+  </div>
+</div>
 
-      </section>
-     {/* Main Content */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+</section>
 
-            {/* Objectives Intro Card */}
-            <Card className="border-0 shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-3xl font-serif font-bold text-gray-900">
-                  Our Objectives
-                </CardTitle>
-                <p className="text-gray-600 font-sans">
-                  At Nuru Njema Foundation, we aim to empower young people through digital skills,
-                  innovation, and opportunities that create sustainable futures.
+    {/* Main Content */}
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          {/* Objectives Card */}
+          <Card className="border-0 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-3xl font-serif font-bold text-gray-900">
+                Objectives of the Organization
+              </CardTitle>
+              <p className="text-gray-600 font-sans">
+                The objectives of Nuru Njema Foundation are as follows:
+              </p>
+            </CardHeader>
+
+            <CardContent className="space-y-5">
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">1. Digital Empowerment</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To provide accessible digital skills training and ICT education to young people.
                 </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">2. Youth Employment Creation</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To equip youth with practical skills that enable employment and self-reliance.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">3. Innovation and Creativity</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To promote innovation, creativity, and problem-solving through technology.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">4. Community Development</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To support sustainable community development through digital transformation.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">5. Strategic Partnerships</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To collaborate with government, private sector, and stakeholders in advancing youth development.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif font-bold text-gray-900">6. Inclusive Development</h3>
+                <p className="text-gray-600 font-sans text-sm">
+                  To ensure vulnerable and marginalized groups have equal access to opportunities.
+                </p>
+              </div>
+
+            </CardContent>
+          </Card>
+
+          {/* Side Info Card */}
+          <div className="space-y-8">
+
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-serif font-bold text-gray-900">
+                  Purpose Summary
+                </CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 font-sans text-sm">
+                  The organization exists to bridge the digital skills gap among youth
+                  and create sustainable opportunities for economic empowerment.
+                </p>
+              </CardContent>
+            </Card>
 
-              <CardContent className="space-y-6">
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-serif font-bold text-gray-900">
+                  Contact Information
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-gray-600 font-sans">
+                <p><span className="font-bold text-gray-900">Phone:</span> +255 742 700 833</p>
+                <p><span className="font-bold text-gray-900">Email:</span> info@nurunjema.org</p>
+                <p><span className="font-bold text-gray-900">Location:</span> Tanzania</p>
+              </CardContent>
+            </Card>
 
-                <div className="space-y-4">
+            <Card className="border-0 shadow-lg bg-cyan-50">
+              <CardContent className="pt-6 text-center">
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
+                  Our Impact
+                </h3>
 
-                  <div className="space-y-2">
-                    <h3 className="font-serif font-bold text-gray-900">1. Digital Empowerment</h3>
-                    <p className="text-gray-600 font-sans text-sm">
-                      Provide accessible digital skills training to youth in Tanzania and beyond.
-                    </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-2xl font-serif font-black text-cyan-600">5+</div>
+                    <div className="text-sm text-gray-600">Programs</div>
                   </div>
-
-                  <div className="space-y-2">
-                    <h3 className="font-serif font-bold text-gray-900">2. Youth Employment</h3>
-                    <p className="text-gray-600 font-sans text-sm">
-                      Equip young people with practical skills that lead to jobs and self-employment.
-                    </p>
+                  <div>
+                    <div className="text-2xl font-serif font-black text-cyan-600">300+</div>
+                    <div className="text-sm text-gray-600">Youth</div>
                   </div>
-
-                  <div className="space-y-2">
-                    <h3 className="font-serif font-bold text-gray-900">3. Innovation & Creativity</h3>
-                    <p className="text-gray-600 font-sans text-sm">
-                      Encourage innovation, problem-solving, and technology-based solutions.
-                    </p>
+                  <div>
+                    <div className="text-2xl font-serif font-black text-cyan-600">10+</div>
+                    <div className="text-sm text-gray-600">Communities</div>
                   </div>
-
-                  <div className="space-y-2">
-                    <h3 className="font-serif font-bold text-gray-900">4. Community Development</h3>
-                    <p className="text-gray-600 font-sans text-sm">
-                      Support communities by reducing unemployment through digital transformation.
-                    </p>
+                  <div>
+                    <div className="text-2xl font-serif font-black text-cyan-600">100%</div>
+                    <div className="text-sm text-gray-600">Commitment</div>
                   </div>
-
                 </div>
 
-                <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white py-3 text-lg font-sans">
-                  Join Our Programs
-                </Button>
-
-              </CardContent>
-            </Card>
-
-            {/* Information Section */}
-            <div className="space-y-8">
-
-              {/* What We Aim For */}
-              <Card className="border-0 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-serif font-bold text-gray-900">
-                    What We Aim For
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-
-                  <p className="text-gray-600 font-sans text-sm">
-                    We focus on building a generation of skilled, confident, and innovative young people
-                    who can compete in the digital world.
-                  </p>
-
-                  <p className="text-gray-600 font-sans text-sm">
-                    Our programs are designed to bridge the gap between education and real-world skills.
-                  </p>
-
-                  <p className="text-gray-600 font-sans text-sm">
-                    We believe technology is the key to solving unemployment challenges in Africa.
-                  </p>
-
-                </CardContent>
-              </Card>
-
-              {/* Contact Info */}
-              <Card className="border-0 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-serif font-bold text-gray-900">
-                    Contact Us
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-
-                  <div>
-                    <p className="font-serif font-bold text-gray-900">Phone</p>
-                    <p className="text-gray-600 font-sans">+255 742 700 833</p>
-                  </div>
-
-                  <div>
-                    <p className="font-serif font-bold text-gray-900">Email</p>
-                    <p className="text-gray-600 font-sans">info@nurunjema.org</p>
-                  </div>
-
-                  <div>
-                    <p className="font-serif font-bold text-gray-900">Location</p>
-                    <p className="text-gray-600 font-sans">Tanzania, United Republic of</p>
-                  </div>
-
-                </CardContent>
-              </Card>
-
-              {/* Impact Stats */}
-              <Card className="border-0 shadow-lg bg-gradient-to-br from-cyan-50 to-amber-50">
-                <CardContent className="pt-6">
-                  <div className="text-center space-y-4">
-
-                    <h3 className="text-xl font-serif font-bold text-gray-900">
-                      Our Impact
-                    </h3>
-
-                    <div className="grid grid-cols-2 gap-4 text-center">
-
-                      <div>
-                        <div className="text-2xl font-serif font-black text-cyan-600">5+</div>
-                        <div className="text-sm text-gray-600 font-sans">Programs</div>
-                      </div>
-
-                      <div>
-                        <div className="text-2xl font-serif font-black text-cyan-600">300+</div>
-                        <div className="text-sm text-gray-600 font-sans">Youth Trained</div>
-                      </div>
-
-                      <div>
-                        <div className="text-2xl font-serif font-black text-cyan-600">10+</div>
-                        <div className="text-sm text-gray-600 font-sans">Communities</div>
-                      </div>
-
-                      <div>
-                        <div className="text-2xl font-serif font-black text-cyan-600">100%</div>
-                        <div className="text-sm text-gray-600 font-sans">Dedication</div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </CardContent>
-              </Card>
-
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Programs Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-black text-gray-900 mb-4">
-              Our Programs FAQs
-            </h2>
-            <p className="text-lg text-gray-600 font-sans">
-              Common questions about our digital skills training programs at Nuru Njema Foundation.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Who can join Nuru Njema programs?
-                </h3>
-                <p className="text-gray-600 font-sans">
-                  Our programs are open to all young people interested in learning digital skills,
-                  regardless of their education level or background.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Do I need computer experience before joining?
-                </h3>
-                <p className="text-gray-600 font-sans">
-                  No prior experience is required. We start from basic computer skills and guide you
-                  step by step until you become confident in digital tools.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Is the training free?
-                </h3>
-                <p className="text-gray-600 font-sans">
-                  Many of our programs are free or supported by partners to ensure youth have access
-                  to quality digital education.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  What will I be able to do after the program?
-                </h3>
-                <p className="text-gray-600 font-sans">
-                  You will be able to create websites, design graphics, understand digital marketing,
-                  and use technology to earn income or get employment opportunities.
-                </p>
               </CardContent>
             </Card>
 
           </div>
         </div>
-      </section>
+      </div>
+  </section>
           </div>
           ) 
           }
