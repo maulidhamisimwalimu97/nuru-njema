@@ -1,5 +1,8 @@
+"use client";
+
 import type React from "react";
-import type { Metadata } from "next";
+import { usePathname } from "next/navigation";
+
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -22,35 +25,37 @@ const openSans = Open_Sans({
   weight: ["400", "500", "600"],
 });
 
-export const metadata: Metadata = {
-  title: "Nuru Njema Foundation",
-  description:
-    "Empowering youth through digital skills, innovation, and education in Tanzania.",
-};
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
+  // Hide layout elements for auth pages
+  const isAuthPage =
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/register");
+
   return (
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-background text-foreground">
 
-        {/* LOADER */}
-        <PageLoader />
+        {/* Page Loader */}
+        {!isAuthPage && <PageLoader />}
 
-        {/* NAVIGATION */}
-        <Navigation />
+        {/* Navigation */}
+        {!isAuthPage && <Navigation />}
 
-        {/* PAGE CONTENT */}
+        {/* Page Content */}
         <main className="flex-grow">{children}</main>
 
-        {/* FOOTER */}
-        <Footer />
+        {/* Footer */}
+        {!isAuthPage && <Footer />}
 
-        {/* BACK TO TOP */}
-        <BackToTop />
+        {/* Back To Top Button */}
+        {!isAuthPage && <BackToTop />}
 
       </body>
     </html>
