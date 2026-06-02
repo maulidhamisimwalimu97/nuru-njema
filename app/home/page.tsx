@@ -87,7 +87,7 @@ export default function HomePage() {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-6">
-              Who We Are
+              Who We Are ?
             </h2>
 
             <p className="text-lg text-gray-600 mb-6 font-sans leading-relaxed">
@@ -533,6 +533,60 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+
+            {/* Blog 7 */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img
+                  src="/images/77.jpeg"
+                  alt="Blog 7"
+                  className="w-full h-48 object-cover"
+                />
+
+                <div className="p-6">
+                  <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
+                    Mafunzo ya Vitendo kwa Vijana: Kilimo na Masoko ya Kidigitali
+                  </h3>
+
+                  <p className="text-gray-600 font-sans text-sm mb-4">
+                    Nuru Njema Foundation inawapatia vijana mafunzo ya vitendo katika
+                    uzalishaji wa mazao, kilimo bora, na ujuzi wa kuuza bidhaa kupitia
+                    majukwaa ya kidigitali ili kuwasaidia kujiajiri na kuongeza kipato.
+                  </p>
+
+                  <Link href="/blogs/digital-agriculture-youth">
+                    <button className="text-cyan-600 font-semibold hover:underline">
+                      Read More →
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Blog 8 - Women Empowerment */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <img
+                    src="/images/78.jpeg"
+                    alt="Women Empowerment"
+                    className="w-full h-48 object-cover"
+                  />
+
+                  <div className="p-6">
+                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
+                      Empowering Women in Economic Activities
+                    </h3>
+
+                    <p className="text-gray-600 font-sans text-sm mb-4">
+                      Nuru Njema Foundation inawawezesha wanawake kushiriki kikamilifu katika
+                      shughuli za kiuchumi, kuwajengea uwezo wa kujiamini, kutoa mawazo yao
+                      katika jamii, na kujihusisha na biashara na maendeleo endelevu.
+                    </p>
+
+                    <Link href="/blogs/women-economic-empowerment">
+                      <button className="text-cyan-600 font-semibold hover:underline">
+                        Read More →
+                      </button>
+                    </Link>
+                  </div>
+                </div>
 
           </div>
 

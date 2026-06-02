@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -21,14 +21,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2 (UPDATED - no Programs) */}
           <div>
-            <h4 className="text-lg font-serif font-bold mb-4">Programs</h4>
+            <h4 className="text-lg font-serif font-bold mb-4">Organization</h4>
             <ul className="space-y-2 text-gray-400 font-sans">
-              <li><Link href="/services/digital" className="hover:text-cyan-400">Digital Skills Training</Link></li>
-              <li><Link href="/services/mentorship" className="hover:text-cyan-400">Youth Mentorship</Link></li>
-              <li><Link href="/services/innovation" className="hover:text-cyan-400">Innovation Support</Link></li>
-              <li><Link href="/services/entrepreneurship" className="hover:text-cyan-400">Entrepreneurship Guidance</Link></li>
+              <li>
+                <Link href="/about" className="hover:text-cyan-400">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/contact" className="hover:text-cyan-400">
+                  Contact Us
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/donate" className="hover:text-cyan-400">
+                  Donate
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -36,17 +49,21 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-serif font-bold mb-4">Organization</h4>
             <ul className="space-y-2 text-gray-400 font-sans">
-              <li><Link href="/about" className="hover:text-cyan-400">About Us</Link></li>
+              <li>
+                <Link href="/about" className="hover:text-cyan-400">
+                  About Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4 */}
+          {/* Column 4 (UPDATED OFFICE) */}
           <div>
             <h4 className="text-lg font-serif font-bold mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400 font-sans">
               <p>📧 info@nurunjemafoundation.org</p>
               <p>📞 +255 700 000 000</p>
-              <p>📍 Dar es Salaam, Tanzania</p>
+              <p>📍 Morogoro, Kichangani, Tanzania</p>
             </div>
           </div>
 
@@ -55,10 +72,9 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 font-sans text-sm">
-            © 2026 Nuru Njema Foundation. All rights reserved.
+            © {new Date().getFullYear()} Nuru Njema Foundation. All rights reserved.
           </p>
         </div>
-
       </div>
     </footer>
   )

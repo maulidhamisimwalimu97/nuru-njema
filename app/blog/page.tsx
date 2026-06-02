@@ -47,199 +47,88 @@ export default function BlogPage() {
 
       </section>
       {/* Featured Post */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="mb-12">
-              <h2 className="text-3xl font-serif font-black text-gray-900 mb-8">
-                Featured Story
-              </h2>
-
-              <Card className="border-0 shadow-xl overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-
-                  {/* Image */}
-                  <div className="relative">
-                    <img
-                      src="/images/23.jpeg"
-                      alt="Featured Story"
-                      className="w-full h-64 lg:h-full object-cover"
-                    />
-                    <Badge className="absolute top-4 left-4 bg-cyan-600 text-white">
-                      Digital Skills
-                    </Badge>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-8 flex flex-col justify-between">
-
-                    <div>
-
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl font-serif font-bold text-gray-900 mb-3">
-                          Empowering Youth Through Digital Skills Training
-                        </CardTitle>
-
-                        <p className="text-gray-600 font-sans leading-relaxed">
-                          At Nuru Njema Foundation, we are transforming young lives by providing
-                          practical digital skills that open doors to employment, freelancing,
-                          and innovation opportunities in today’s digital world.
-                        </p>
-                      </CardHeader>
-
-                      <div className="flex items-center space-x-4 text-sm text-gray-500 font-sans mb-6">
-
-                        <div className="flex items-center">
-                          <User className="h-4 w-4 mr-1" />
-                          Nuru Njema Team
-                        </div>
-
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          {new Date().toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </div>
-
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          5 min read
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <Link href="/blog/empowering-youth-digital-skills">
-                      <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                        Read Full Story
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-
-                  </div>
-                </div>
-              </Card>
-
-            </div>
-          </div>
-        </section>
-
-        {/* Recent Posts Grid */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <h2 className="text-3xl font-serif font-black text-gray-900 mb-12">
-              Recent Stories
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif font-black text-gray-900 mb-8">
+              Featured Story
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-xl overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
 
-              {recentPosts.map((post) => (
-                <Card key={post.slug} className="border-0 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                {/* Image */}
+                <div className="relative">
+                  <img
+                    src="/images/77.jpeg"
+                    alt="Featured Story"
+                    className="w-full h-64 lg:h-full object-cover"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-cyan-600 text-white">
+                    Agriculture & Digital Skills
+                  </Badge>
+                </div>
 
-                  <div className="relative">
-                    <img
-                      src={post.thumbnail || "/images/23.jpeg"}
-                      alt={post.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    <Badge className="absolute top-4 left-4 bg-cyan-600 text-white">
-                      Digital Skills
-                    </Badge>
-                  </div>
+                {/* Content */}
+                <div className="p-8 flex flex-col justify-between">
 
-                  <CardContent className="p-6">
+                  <div>
 
                     <CardHeader className="p-0 mb-4">
-                      <CardTitle className="text-xl font-serif font-bold text-gray-900 mb-2 line-clamp-2">
-                        {post.title || "Empowering Youth Through Digital Skills"}
+                      <CardTitle className="text-2xl font-serif font-bold text-gray-900 mb-3">
+                        Empowering Youth Through Agriculture & Digital Markets
                       </CardTitle>
 
-                      <p className="text-gray-600 font-sans text-sm leading-relaxed line-clamp-3">
-                        {post.excerpt ||
-                          "Nuru Njema Foundation is empowering young people with digital skills that create opportunities in technology, freelancing, and innovation."}
+                      <p className="text-gray-600 font-sans leading-relaxed">
+                        Nuru Njema Foundation inawapatia vijana mafunzo ya vitendo
+                        katika kilimo cha kisasa, uzalishaji wa mazao, na jinsi ya
+                        kuuza bidhaa zao kupitia majukwaa ya kidigitali ili kuongeza
+                        kipato na kujiajiri.
                       </p>
                     </CardHeader>
 
-                    <div className="flex items-center justify-between text-xs text-gray-500 font-sans mb-4">
+                    <div className="flex items-center space-x-4 text-sm text-gray-500 font-sans mb-6">
 
-                      <div className="flex items-center space-x-3">
-
-                        <div className="flex items-center">
-                          <User className="h-3 w-3 mr-1" />
-                          Nuru Njema Team
-                        </div>
-
-                        <div className="flex items-center">
-                          <Clock className="h-3 w-3 mr-1" />
-                          5 min read
-                        </div>
-
+                      <div className="flex items-center">
+                        <User className="h-4 w-4 mr-1" />
+                        Nuru Njema Team
                       </div>
 
                       <div className="flex items-center">
-                        <Calendar className="h-3 w-3 mr-1" />
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {new Date().toLocaleDateString("en-US", {
                           year: "numeric",
+                          month: "long",
+                          day: "numeric",
                         })}
+                      </div>
+
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        5 min read
                       </div>
 
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {(post.tags || ["digital skills", "youth empowerment"]).slice(0, 2).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
+                  </div>
 
-                    <Link href={`/blog/${post.slug}`}>
-                      <Button
-                        variant="outline"
-                        className="w-full border-cyan-600 text-cyan-600 hover:bg-cyan-50 bg-transparent"
-                      >
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
+                  <Link href="/blog/youth-agriculture-digital-markets">
+                    <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
+                      Read Full Story
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
 
-                  </CardContent>
-                </Card>
-              ))}
+                </div>
+              </div>
+            </Card>
 
-            </div>
-          </div>
-        </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20 bg-cyan-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-serif font-black text-white mb-4">
-            Join Our Learning Community
-          </h2>
-          <p className="text-xl text-cyan-100 mb-8 font-sans">
-            Subscribe to receive updates on free digital skills training, new programs,
-            and opportunities from Nuru Njema Foundation.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white font-sans"
-            />
-            <Button className="bg-white text-cyan-600 hover:bg-gray-100 px-6 py-3 font-sans">
-              Subscribe
-            </Button>
           </div>
         </div>
       </section>
+
+     
           </div>
           ) 
           }
