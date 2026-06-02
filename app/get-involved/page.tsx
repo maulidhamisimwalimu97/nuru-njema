@@ -41,7 +41,7 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-white flex flex-col">
       
 
-      {/* MAIN CONTENT */}
+     {/* MAIN CONTENT */}
       <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8">
 
         <div className="max-w-2xl w-full space-y-8">
@@ -96,41 +96,6 @@ export default function RegisterPage() {
                   </SelectContent>
                 </Select>
 
-                {/* Password */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                  <div className="relative">
-                    <Input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Create Password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-3"
-                    >
-                      {showPassword ? <EyeOff /> : <Eye />}
-                    </button>
-                  </div>
-
-                  <div className="relative">
-                    <Input
-                      type={showConfirmPassword ? "text" : "password"}
-                      placeholder="Confirm Password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-3"
-                    >
-                      {showConfirmPassword ? <EyeOff /> : <Eye />}
-                    </button>
-                  </div>
-
-                </div>
-
                 {/* Checkboxes */}
                 <div className="space-y-3">
 
@@ -152,20 +117,11 @@ export default function RegisterPage() {
 
                 {/* Submit */}
                 <Button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
-                  Join Nuru Njema
+                  Submit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
 
               </form>
-
-              <div className="mt-6 text-center">
-                <p className="text-sm text-gray-500">
-                  Already a member?{" "}
-                  <Link href="/login" className="text-cyan-600 font-medium">
-                    Sign In
-                  </Link>
-                </p>
-              </div>
 
             </CardContent>
           </Card>

@@ -380,7 +380,7 @@ export default function AboutPage() {
             and sustainable development initiatives.
           </p>
 
-          <Link href="/join">
+          <Link href="/get-involved">
             <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-sans">
               Get Involved
             </Button>

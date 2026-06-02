@@ -136,7 +136,7 @@ export default function HomePage() {
         </div>
       </div>
     </section>
-      {/* Why Choose Nuru Njema Foundation */}
+    {/* Why Choose Nuru Njema Foundation */}
       <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -144,65 +144,74 @@ export default function HomePage() {
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
               Why Choose Nuru Njema Foundation?
             </h2>
-            <p className="text-gray-600 font-sans text-center">
-              We empower youth through integrated digital literacy, STEAM education,
-              entrepreneurship development, and community-based innovation programs
-              aligned with national development priorities.
-            </p>          
+            <p className="text-gray-600 font-sans max-w-4xl mx-auto">
+              Nuru Njema Foundation empowers young people, women, and vulnerable
+              communities through digital transformation, entrepreneurship,
+              agriculture, climate action, innovation, leadership, and sustainable
+              development initiatives that create long-term opportunities and impact.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {/* Card 1 */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all">
+              <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-cyan-600" />
                 </div>
+
                 <CardTitle className="text-xl font-serif font-bold">
-                  Digital Safety & Guidance
+                  Digital Transformation & STEAM
                 </CardTitle>
               </CardHeader>
+
               <CardContent>
-                <p className="text-gray-600 font-sans text-center">
-                  We ensure learners understand safe and responsible use of technology,
-                  including online security and ethical digital practices.
+                <p className="text-center text-gray-600">
+                  We equip youth with digital literacy, STEAM education, innovation
+                  skills, and emerging technologies that prepare them for future
+                  opportunities.
                 </p>
               </CardContent>
             </Card>
 
             {/* Card 2 */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all">
+              <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-8 w-8 text-amber-600" />
                 </div>
+
                 <CardTitle className="text-xl font-serif font-bold">
-                  Skills for Future Careers
+                  Entrepreneurship & Agriculture
                 </CardTitle>
               </CardHeader>
+
               <CardContent>
-                <p className="text-gray-600 font-sans text-center">
-                  We provide hands-on training in digital skills such as web development,
-                  design, and entrepreneurship to prepare youth for the future economy.
+                <p className="text-center text-gray-600">
+                  We support youth and farmers through entrepreneurship training,
+                  digital agriculture solutions, market access, and income-generating
+                  opportunities.
                 </p>
               </CardContent>
             </Card>
 
             {/* Card 3 */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-cyan-600" />
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-green-600" />
                 </div>
+
                 <CardTitle className="text-xl font-serif font-bold">
-                  Community Empowerment
+                  Inclusion & Community Impact
                 </CardTitle>
               </CardHeader>
+
               <CardContent>
-                <p className="text-gray-600 font-sans text-center">
-                  We build a strong network of young innovators who collaborate,
-                  support each other, and drive positive change in their communities.
+                <p className="text-center text-gray-600">
+                  We promote gender equality, youth leadership, climate awareness,
+                  biodiversity conservation, and community-driven development.
                 </p>
               </CardContent>
             </Card>
@@ -210,7 +219,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
       {/* Our Philosophy */}
       <section id="philosophy" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,83 +228,81 @@ export default function HomePage() {
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
               Our Philosophy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              We believe in transparency, empowerment, and equal access to digital skills
-              that shape the future of young people in our communities.
+
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We believe every young person deserves the opportunity to learn,
+              innovate, lead, and prosper regardless of their background,
+              location, or circumstances.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
             {/* Left Content */}
-            <div>
-              <div className="space-y-6">
+            <div className="space-y-6">
 
-                {/* Item 1 */}
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Practical Learning Approach
-                    </h3>
-                    <p className="text-gray-600 font-sans">
-                      We focus on hands-on training where learners build real projects
-                      to gain practical digital skills.
-                    </p>
-                  </div>
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-serif font-bold text-lg">
+                    Empowerment Through Knowledge
+                  </h3>
+                  <p className="text-gray-600">
+                    We provide practical knowledge and skills that enable young
+                    people to create opportunities for themselves and their
+                    communities.
+                  </p>
                 </div>
-
-                {/* Item 2 */}
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Future-Focused Growth
-                    </h3>
-                    <p className="text-gray-600 font-sans">
-                      We prepare youth for future careers in technology, innovation,
-                      and entrepreneurship.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Item 3 */}
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Inclusive Access to Skills
-                    </h3>
-                    <p className="text-gray-600 font-sans">
-                      We ensure every young person, regardless of background,
-                      has access to digital education opportunities.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Item 4 */}
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Transparency & Impact
-                    </h3>
-                    <p className="text-gray-600 font-sans">
-                      We openly share our progress and ensure every program creates
-                      measurable impact in the community.
-                    </p>
-                  </div>
-                </div>
-
               </div>
+
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-serif font-bold text-lg">
+                    Inclusive Development
+                  </h3>
+                  <p className="text-gray-600">
+                    We support women, youth, people with disabilities, and other
+                    vulnerable groups to ensure no one is left behind.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-serif font-bold text-lg">
+                    Innovation for Social Change
+                  </h3>
+                  <p className="text-gray-600">
+                    We encourage innovative solutions that address challenges in
+                    education, agriculture, climate resilience, and economic growth.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="h-6 w-6 text-cyan-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-serif font-bold text-lg">
+                    Partnerships for Sustainable Impact
+                  </h3>
+                  <p className="text-gray-600">
+                    We collaborate with government institutions, private sector
+                    partners, development organizations, and communities to create
+                    lasting change.
+                  </p>
+                </div>
+              </div>
+
             </div>
 
             {/* Right Image */}
             <div>
               <img
                 src="/images/23.jpeg"
-                alt="Nuru Njema students learning digital skills"
-                className="rounded-lg shadow-lg object-cover"
+                alt="Nuru Njema Foundation"
+                className="rounded-xl shadow-lg object-cover w-full"
               />
             </div>
 
@@ -303,75 +310,80 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* How It Works */}
+      {/* Our Key Activities */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
-              How It Works
+              Our Key Activities
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              Our simple learning process helps young people move from beginners
-              to skilled digital creators step by step.
+
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Through these strategic activities, we work towards achieving our
+              mission and objectives across Tanzania.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
 
-            {/* Step 1 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-serif font-black">
+              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-black">
                 1
               </div>
-              <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                Registration & Orientation
+              <h3 className="font-serif font-bold text-lg mb-2">
+                Digital & STEAM Education
               </h3>
-              <p className="text-gray-600 font-sans">
-                Youth join the program and are introduced to available digital
-                skills learning paths and opportunities.
+              <p className="text-gray-600">
+                Delivering digital literacy, STEAM learning, and technology training.
               </p>
             </div>
 
-            {/* Step 2 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-serif font-black">
+              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-black">
                 2
               </div>
-              <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                Skills Training
+              <h3 className="font-serif font-bold text-lg mb-2">
+                Agriculture Innovation
               </h3>
-              <p className="text-gray-600 font-sans">
-                Participants receive hands-on training in areas like web development,
-                design, and digital literacy.
+              <p className="text-gray-600">
+                Supporting farmers with digital tools, entrepreneurship, and market access.
               </p>
             </div>
 
-            {/* Step 3 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-serif font-black">
+              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-black">
                 3
               </div>
-              <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                Practical Projects
+              <h3 className="font-serif font-bold text-lg mb-2">
+                Climate & Biodiversity
               </h3>
-              <p className="text-gray-600 font-sans">
-                Learners build real-world projects to apply their knowledge
-                and gain practical experience.
+              <p className="text-gray-600">
+                Promoting environmental sustainability, climate awareness, and conservation.
               </p>
             </div>
 
-            {/* Step 4 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-serif font-black">
+              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-black">
                 4
               </div>
-              <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                Growth & Opportunities
+              <h3 className="font-serif font-bold text-lg mb-2">
+                Research & Leadership
               </h3>
-              <p className="text-gray-600 font-sans">
-                Graduates get mentorship, networking opportunities,
-                and support to start careers or projects.
+              <p className="text-gray-600">
+                Encouraging youth participation in innovation, research, and decision-making.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-black">
+                5
+              </div>
+              <h3 className="font-serif font-bold text-lg mb-2">
+                Partnerships & Advocacy
+              </h3>
+              <p className="text-gray-600">
+                Building collaborations that improve policies and community welfare.
               </p>
             </div>
 
@@ -379,115 +391,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Team */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
-              Our Leadership Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-              Meet the dedicated leadership team guiding Nuru Njema Foundation
-              in empowering youth and driving community transformation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {/* Member 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Abraham Jackson Mwankenja"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Abraham Jackson Mwankenja
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Chairperson
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-            {/* Member 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Marcelina Charles Kibena"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Marcelina Charles Kibena
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Member
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-            {/* Member 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Halima Joseph Kihaka"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Halima Joseph Kihaka
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Member
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-            {/* Member 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Fazali James Sikawakwe"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Fazali James Sikawakwe
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Executive Secretary
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-            {/* Member 5 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Tito Charles Kunambi"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Tito Charles Kunambi
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Member
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-            {/* Member 6 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <img src="/images/2.jpeg" alt="Jennifer Julius Semwaiko"
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-lg font-serif font-bold text-gray-900">
-                Jennifer Julius Semwaiko
-              </h3>
-              <p className="text-cyan-600 font-sans font-medium mt-1">
-                Treasurer
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Tanzania, United Republic of
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
       
       {/* Our Blogs */}
 <section className="py-20 bg-gray-50">
@@ -672,28 +575,6 @@ export default function HomePage() {
               </AccordionContent>
             </AccordionItem>
 
-            {/* Q2 */}
-            <AccordionItem value="item-2" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-serif font-bold text-gray-900 hover:text-cyan-600">
-                Do I need prior computer knowledge to join?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-600 font-sans">
-                No. Our training starts from the basics and gradually advances to more
-                professional digital skills like web development, design, and online tools.
-              </AccordionContent>
-            </AccordionItem>
-
-            {/* Q3 */}
-            <AccordionItem value="item-3" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-serif font-bold text-gray-900 hover:text-cyan-600">
-                What skills will I learn?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-600 font-sans">
-                You will learn practical skills such as computer basics, web development,
-                graphic design, digital marketing, and problem-solving using technology.
-              </AccordionContent>
-            </AccordionItem>
-
             {/* Q4 */}
             <AccordionItem value="item-4" className="border border-gray-200 rounded-lg px-6">
               <AccordionTrigger className="text-left font-serif font-bold text-gray-900 hover:text-cyan-600">
@@ -720,43 +601,37 @@ export default function HomePage() {
         </div>
       </section>
       
-     {/* CTA Section */}
+    {/* CTA Section */}
     <section className="py-20 bg-cyan-600">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-        <h2 className="text-4xl font-serif font-black text-white mb-4">
-          Ready to Start Your Digital Skills Journey?
-        </h2>
+      <h2 className="text-4xl font-serif font-black text-white mb-4">
+        Get Involved in Creating Lasting Impact
+      </h2>
 
-        <p className="text-xl text-cyan-100 mb-8 font-sans">
-          Join Nuru Njema Foundation today and gain the skills, knowledge,
-          and opportunities to shape your future through technology.
-        </p>
+      <p className="text-xl text-cyan-100 mb-8 font-sans">
+        Partner with Nuru Njema Foundation as a donor, development partner,
+        volunteer, or supporter. Stay connected with our projects, receive
+        updates on community impact, and help us empower youth, women, and
+        vulnerable communities across Tanzania.
+      </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <div className="flex justify-center">
 
-          <Link href="/join">
-            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-sans">
-              Join the Program
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
-
-          <Link href="/get-involved">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg font-sans bg-transparent"
-            >
-              Get Involved
-            </Button>
-          </Link>
-
-        </div>
+        <Link href="/get-involved">
+          <Button
+            size="lg"
+            className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+          >
+            Become a Partner or Supporter
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </Link>
 
       </div>
-    </section>
 
+    </div>
+    </section>
     </div>
   );
 }

@@ -23,154 +23,204 @@ export default function ConsultationPage() {
             alt="Nuru Njema Objectives"
             className="w-full h-full object-cover"
           />
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-       {/* Content */}
-<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div className="text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
 
-    <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
-      Our <span className="text-cyan-400">Objectives</span>
-    </h1>
+            <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
+              Our <span className="text-cyan-400">Objectives</span>
+            </h1>
 
-    <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
-      At Nuru Njema Foundation, our objectives are to empower young people through
-      digital skills development, innovation, and sustainable opportunities for social and economic growth.
-    </p>
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
+              At Nuru Njema Foundation, our objectives are strictly guided by our Constitution
+              to empower communities through digital transformation, innovation, and sustainable development.
+            </p>
 
-  </div>
-</div>
+          </div>
+        </div>
+      </section>
 
-</section>
+      {/* Main Content */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    {/* Main Content */}
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-          {/* Objectives Card */}
-          <Card className="border-0 shadow-xl">
-            <CardHeader>
-              <CardTitle className="text-3xl font-serif font-bold text-gray-900">
-                Objectives of the Organization
-              </CardTitle>
-              <p className="text-gray-600 font-sans">
-                The objectives of Nuru Njema Foundation are as follows:
-              </p>
-            </CardHeader>
-
-            <CardContent className="space-y-5">
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">1. Digital Empowerment</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To provide accessible digital skills training and ICT education to young people.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">2. Youth Employment Creation</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To equip youth with practical skills that enable employment and self-reliance.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">3. Innovation and Creativity</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To promote innovation, creativity, and problem-solving through technology.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">4. Community Development</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To support sustainable community development through digital transformation.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">5. Strategic Partnerships</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To collaborate with government, private sector, and stakeholders in advancing youth development.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-serif font-bold text-gray-900">6. Inclusive Development</h3>
-                <p className="text-gray-600 font-sans text-sm">
-                  To ensure vulnerable and marginalized groups have equal access to opportunities.
-                </p>
-              </div>
-
-            </CardContent>
-          </Card>
-
-          {/* Side Info Card */}
-          <div className="space-y-8">
-
-            <Card className="border-0 shadow-lg">
+            {/* Objectives Card */}
+            <Card className="border-0 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-2xl font-serif font-bold text-gray-900">
-                  Purpose Summary
+                <CardTitle className="text-3xl font-serif font-bold text-gray-900">
+                  Objectives of the Organization
                 </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 font-sans text-sm">
-                  The organization exists to bridge the digital skills gap among youth
-                  and create sustainable opportunities for economic empowerment.
+                <p className="text-gray-600 font-sans">
+                  The objectives of Nuru Njema Foundation as stated in the Constitution:
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl font-serif font-bold text-gray-900">
-                  Contact Information
-                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3 text-sm text-gray-600 font-sans">
-                <p><span className="font-bold text-gray-900">Phone:</span> +255 742 700 833</p>
-                <p><span className="font-bold text-gray-900">Email:</span> info@nurunjema.org</p>
-                <p><span className="font-bold text-gray-900">Location:</span> Tanzania</p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-0 shadow-lg bg-cyan-50">
-              <CardContent className="pt-6 text-center">
-                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
-                  Our Impact
-                </h3>
+              <CardContent className="space-y-6 font-sans text-gray-700">
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-2xl font-serif font-black text-cyan-600">5+</div>
-                    <div className="text-sm text-gray-600">Programs</div>
+                <div>
+                  <h3 className="font-serif font-bold text-gray-900">
+                    1. Integrated Digital Literacy & STEAM Education
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    To integrate digital literacy and access to STEAM education and emerging technologies into educational programs,
+                    preparing young people for real-world opportunities.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-serif font-bold text-gray-900">
+                    2. Agricultural Digital Transformation
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    To enhance the agricultural sector through digital transformation and entrepreneurial capacity building in both rural and urban areas.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-serif font-bold text-gray-900">
+                    3. Climate, Food & Biodiversity Collaboration
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    To foster collaborative efforts in digital transformation technologies through inclusive discussions,
+                    ensuring unified action on food security, climate change, and biodiversity for lasting impact.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-serif font-bold text-gray-900">
+                    4. Youth Participation in Innovation & Leadership
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    To promote youth participation in innovation, research, policy-making, and leadership for economic and social transformation.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-serif font-bold text-gray-900">
+                    5. Strategic Partnerships & Collaboration
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    To develop partnerships, linkages, and collaborations with stakeholders including government and private sectors,
+                    to advocate for policies and programs that improve societal welfare.
+                  </p>
+                </div>
+
+                {/* ACTIVITIES SECTION (ADDED) */}
+                <div className="pt-6 border-t border-gray-200 space-y-4">
+
+                  <h3 className="font-serif font-bold text-gray-900 text-lg">
+                    Organization Activities
+                  </h3>
+
+                  <p className="text-sm text-gray-600">
+                    This organization carries out the following activities:
+                  </p>
+
+                  <div className="space-y-3 text-sm text-gray-700">
+
+                    <div>
+                      <h4 className="font-semibold text-gray-900">
+                        1. Women and Youth Empowerment
+                      </h4>
+                      <p className="text-gray-600">
+                        Providing education, entrepreneurship training, and life skills.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold text-gray-900">
+                        2. Public Resource Tracking
+                      </h4>
+                      <p className="text-gray-600">
+                        Using methods such as the Public Expenditure Tracking System (PETS) to promote transparency and accountability.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold text-gray-900">
+                        3. Inclusive Education
+                      </h4>
+                      <p className="text-gray-600">
+                        Supporting groups with special needs and their teachers to ensure inclusive access to education.
+                      </p>
+                    </div>
+
                   </div>
-                  <div>
-                    <div className="text-2xl font-serif font-black text-cyan-600">300+</div>
-                    <div className="text-sm text-gray-600">Youth</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-serif font-black text-cyan-600">10+</div>
-                    <div className="text-sm text-gray-600">Communities</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-serif font-black text-cyan-600">100%</div>
-                    <div className="text-sm text-gray-600">Commitment</div>
-                  </div>
+
                 </div>
 
               </CardContent>
             </Card>
 
+
+
+            {/* Side Info Card */}
+            <div className="space-y-8">
+
+              <Card className="border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-serif font-bold text-gray-900">
+                    Purpose Summary
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 font-sans text-sm">
+                    The organization exists to bridge the digital skills gap among youth
+                    and create sustainable opportunities for economic empowerment.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-serif font-bold text-gray-900">
+                    Contact Information
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-gray-600 font-sans">
+                  <p><span className="font-bold text-gray-900">Phone:</span> +255 742 700 833</p>
+                  <p><span className="font-bold text-gray-900">Email:</span> info@nurunjema.org</p>
+                  <p><span className="font-bold text-gray-900">Location:</span> Tanzania</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg bg-cyan-50">
+                <CardContent className="pt-6 text-center">
+                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
+                    Our Impact
+                  </h3>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-2xl font-serif font-black text-cyan-600">5+</div>
+                      <div className="text-sm text-gray-600">Programs</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-serif font-black text-cyan-600">300+</div>
+                      <div className="text-sm text-gray-600">Youth</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-serif font-black text-cyan-600">10+</div>
+                      <div className="text-sm text-gray-600">Communities</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-serif font-black text-cyan-600">100%</div>
+                      <div className="text-sm text-gray-600">Commitment</div>
+                    </div>
+                  </div>
+
+                </CardContent>
+              </Card>
+
+            </div>
           </div>
         </div>
-      </div>
-  </section>
-          </div>
-          ) 
-          }
+      </section>
+
+    </div>
+  )
+}

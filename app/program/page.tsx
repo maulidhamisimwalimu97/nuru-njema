@@ -1,31 +1,33 @@
+"use client"
+
 import Navigation from "@/components/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, X, ArrowRight } from "lucide-react"
+import {
+  CheckCircle,
+  ArrowRight,
+  TrendingUp,
+  Phone,
+  Users,
+  Clock,
+} from "lucide-react"
 import Link from "next/link"
-import { Monitor, Code, Palette, Megaphone, Lightbulb, Cpu } from "lucide-react";
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-white">
-      
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section className="relative py-24">
 
-        {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src="/images/2.jpg"
             alt="Programs background"
             className="w-full h-full object-cover"
           />
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
@@ -33,182 +35,142 @@ export default function PricingPage() {
           </h1>
 
           <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
-            Nuru Njema Foundation implements structured programs designed to empower youth,
-            women, children, and marginalized groups through digital skills, STEAM education,
-            innovation, and entrepreneurship development in collaboration with stakeholders.
+            Nuru Njema Foundation implements structured community empowerment programs
+            focused on digital inclusion, entrepreneurship, transparency, and supporting
+            vulnerable groups facing digital and economic challenges.
           </p>
 
         </div>
-        </section>
+      </section>
 
-        {/* Programs Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Programs Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            {/* Title */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-900 mb-4">
-                What You Will <span className="text-cyan-600">Learn</span>
-              </h2>
-
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-                Our programs are designed to provide practical, competency-based training
-                that equips learners with skills for employment, innovation, and sustainable development.
-              </p>
-            </div>
-
-            {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-              {/* Card 1 */}
-              <Link href="/services/digital" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Monitor className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    Computer Literacy & Digital Skills
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Basic ICT training including computer use, internet skills, and digital literacy
-                    for everyday and professional use.
-                  </p>
-
-                </div>
-              </Link>
-
-              {/* Card 2 */}
-              <Link href="/services/digital" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Code className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    Web Development & Programming
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Training in modern web technologies including HTML, CSS, JavaScript,
-                    and frameworks for building digital solutions.
-                  </p>
-
-                </div>
-              </Link>
-
-              {/* Card 3 */}
-              <Link href="/services/digital" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Palette className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    Digital & Graphic Design
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Creative skills in branding, design, and digital content creation for
-                    communication and business development.
-                  </p>
-
-                </div>
-              </Link>
-
-              {/* Card 4 */}
-              <Link href="/services/digital" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Megaphone className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    Digital Marketing & Online Business
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Skills in online branding, social media marketing, SEO, and digital
-                    entrepreneurship strategies.
-                  </p>
-
-                </div>
-              </Link>
-
-              {/* Card 5 */}
-              <Link href="/services/entrepreneurship" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Lightbulb className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    Entrepreneurship & Innovation
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Business development, startup skills, and innovation training to support
-                    youth-led enterprises and economic empowerment.
-                  </p>
-
-                </div>
-              </Link>
-
-              {/* Card 6 */}
-              <Link href="/services/innovation" className="group">
-                <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
-
-                  <Cpu className="h-10 w-10 text-cyan-600 mb-4" />
-
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 min-h-[56px]">
-                    ICT, Research & Innovation
-                  </h3>
-
-                  <p className="text-gray-600 font-sans flex-1">
-                    Advanced ICT training, research, and innovation programs focused on solving
-                    community challenges through technology.
-                  </p>
-
-                </div>
-              </Link>
-
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-cyan-600">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-            <h2 className="text-4xl font-serif font-black text-white mb-4">
-              Join Our Digital Empowerment Programs
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-900 mb-4">
+              Our <span className="text-cyan-600">Programs</span>
             </h2>
 
-            <p className="text-xl text-cyan-100 mb-8 font-sans">
-              Become part of a registered NGO empowering youth, women, children,
-              and marginalized groups through STEAM education, innovation,
-              and sustainable development opportunities.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
+              Community-based empowerment programs designed to build economic independence,
+              digital resilience, transparency, and inclusive development.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-              <Link href="/join">
-                <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-sans">
-                  Join the Program
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+            {/* Card 1 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <TrendingUp className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Women & Youth Empowerment
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Entrepreneurship training, life skills, and income-generating support
+                  to help women and youth become economically independent.
+                </p>
+              </div>
+            </div>
 
-              <Link href="/get-involved">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-4 text-lg font-sans bg-transparent"
-                >
-                  Get Involved
-                </Button>
-              </Link>
+            {/* Card 2 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <Phone className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Digital Inclusion & ICT Access
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Bridging the digital divide by improving access to ICT tools,
+                  internet literacy, and digital opportunities.
+                </p>
+              </div>
+            </div>
 
+            {/* Card 3 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <CheckCircle className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Public Expenditure Tracking (PETS)
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Promoting transparency and accountability in public resources
+                  through community monitoring systems.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <TrendingUp className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Entrepreneurship Development
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Supporting youth-led businesses and startups to create sustainable
+                  self-employment opportunities.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <Users className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Inclusive Development
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Ensuring equal access to opportunities for women, youth,
+                  children, and people with disabilities.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="group">
+              <div className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition h-full flex flex-col">
+                <Clock className="h-10 w-10 text-cyan-600 mb-4" />
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">
+                  Community Innovation
+                </h3>
+                <p className="text-gray-600 font-sans flex-1">
+                  Supporting local solutions to social and digital challenges
+                  through innovation and collaboration.
+                </p>
+              </div>
             </div>
 
           </div>
-        </section>
-      </div>
-      ) 
-      }
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-cyan-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          <h2 className="text-4xl font-serif font-black text-white mb-4">
+            Get Involved in Creating Lasting Impact
+          </h2>
+
+          <p className="text-xl text-cyan-100 mb-8 font-sans">
+            Partner with Nuru Njema Foundation as a donor, development partner,
+            volunteer, or supporter.
+          </p>
+
+          <Link href="/get-involved">
+            <Button className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+              Become a Partner or Supporter
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+
+        </div>
+      </section>
+
+    </div>
+  )
+}
