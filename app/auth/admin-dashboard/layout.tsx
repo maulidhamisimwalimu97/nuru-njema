@@ -9,6 +9,7 @@ import {
   Users,
   Settings,
   LogOut,
+  FileText,
   UserCircle,
 } from "lucide-react";
 
@@ -25,7 +26,7 @@ export default function AdminLayout({
       {/* SIDEBAR */}
       <aside
         className={`
-          fixed md:relative z-50 top-0 left-0
+          fixed md:sticky top-0 left-0 z-50
           h-screen w-64 bg-cyan-700 text-white
           flex flex-col
           transform transition-transform duration-300
@@ -48,82 +49,60 @@ export default function AdminLayout({
         {/* NAV */}
         <nav className="flex-1 overflow-y-auto p-4 space-y-3">
 
-        {/* Dashboard */}
-        <Link
+          {/* Dashboard */}
+          <Link
             href="/auth/admin-dashboard"
             className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
+          >
             <div className="bg-white/10 p-2 rounded-lg">
-            <Home className="h-5 w-5 text-white" />
+              <Home className="h-5 w-5 text-white" />
             </div>
             <span className="font-medium">Dashboard</span>
-        </Link>
+          </Link>
 
-        {/* Activities */}
-        <Link
-            href="/auth/admin-dashboard/activities"
+          {/* Blog List */}
+          <Link
+            href="/auth/admin-dashboard/blogs/create"
             className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
+          >
             <div className="bg-white/10 p-2 rounded-lg">
-            <Settings className="h-5 w-5 text-white" />
+              <FileText className="h-5 w-5 text-white" />
             </div>
-            <span className="font-medium">Activities</span>
-        </Link>
+            <span className="font-medium">Blogs</span>
+          </Link>
 
-        {/* Donors */}
-        <Link
+          {/* Donors */}
+          <Link
             href="/auth/admin-dashboard/donors"
             className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
+          >
             <div className="bg-white/10 p-2 rounded-lg">
-            <Users className="h-5 w-5 text-white" />
+              <Users className="h-5 w-5 text-white" />
             </div>
             <span className="font-medium">Donors</span>
-        </Link>
+          </Link>
 
-        {/* Users */}
-        <Link
-            href="/auth/admin-dashboard/users"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
-            <div className="bg-white/10 p-2 rounded-lg">
-            <Users className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Users</span>
-        </Link>
-
-        {/* Messages */}
-        <Link
+          {/* Messages */}
+          <Link
             href="/auth/admin-dashboard/messages"
             className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
+          >
             <div className="bg-white/10 p-2 rounded-lg">
-            <UserCircle className="h-5 w-5 text-white" />
+              <UserCircle className="h-5 w-5 text-white" />
             </div>
             <span className="font-medium">Messages</span>
-        </Link>
+          </Link>
 
-        {/* Partners */}
-        <Link
+          {/* Partners */}
+          <Link
             href="/auth/admin-dashboard/partners"
             className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
+          >
             <div className="bg-white/10 p-2 rounded-lg">
-            <Settings className="h-5 w-5 text-white" />
+              <Settings className="h-5 w-5 text-white" />
             </div>
             <span className="font-medium">Partners</span>
-        </Link>
-
-        {/* Settings */}
-        <Link
-            href="/auth/admin-dashboard/settings"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
-        >
-            <div className="bg-white/10 p-2 rounded-lg">
-            <Settings className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Settings</span>
-        </Link>
+          </Link>
 
         </nav>
 
@@ -140,7 +119,7 @@ export default function AdminLayout({
       </aside>
 
       {/* MAIN AREA */}
-      <div className="flex-1 flex flex-col w-full min-w-0">
+      <div className="flex-1 flex flex-col w-full min-w-0 h-screen overflow-y-auto">
 
         {/* TOP BAR */}
         <header className="bg-white shadow px-4 py-3 flex items-center justify-between sticky top-0 z-40">
@@ -162,7 +141,7 @@ export default function AdminLayout({
         </header>
 
         {/* CONTENT */}
-        <main className="flex-1 p-4 md:p-6 overflow-y-auto flex flex-col">
+        <main className="flex-1 p-4 md:p-6 flex flex-col justify-between">
 
           <div className="flex-1">
             {children}
