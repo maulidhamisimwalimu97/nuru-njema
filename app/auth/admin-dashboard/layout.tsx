@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 import {
   Menu,
   X,
@@ -20,8 +21,20 @@ export default function AdminLayout({
 }) {
   const [open, setOpen] = useState(false);
 
+  // example logout toast (you can later connect API)
+  const handleLogout = () => {
+    toast.success("Logged out successfully 👋");
+    setTimeout(() => {
+      // later: redirect to login
+      console.log("logout");
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen flex bg-gray-100 overflow-hidden">
+
+      {/* 🔔 TOAST CONTAINER */}
+      <Toaster position="top-right" />
 
       {/* SIDEBAR */}
       <aside
@@ -49,70 +62,56 @@ export default function AdminLayout({
         {/* NAV */}
         <nav className="flex-1 overflow-y-auto p-4 space-y-3">
 
-          {/* Dashboard */}
           <Link
             href="/auth/admin-dashboard"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
           >
-            <div className="bg-white/10 p-2 rounded-lg">
-              <Home className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Dashboard</span>
+            <Home className="h-5 w-5" />
+            Dashboard
           </Link>
 
-          {/* Blog List */}
           <Link
             href="/auth/admin-dashboard/blogs/create"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
           >
-            <div className="bg-white/10 p-2 rounded-lg">
-              <FileText className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Blogs</span>
+            <FileText className="h-5 w-5" />
+            Blogs
           </Link>
 
-          {/* Donors */}
           <Link
             href="/auth/admin-dashboard/donors"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
           >
-            <div className="bg-white/10 p-2 rounded-lg">
-              <Users className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Donors</span>
+            <Users className="h-5 w-5" />
+            Donors
           </Link>
 
-          {/* Messages */}
           <Link
             href="/auth/admin-dashboard/messages"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
           >
-            <div className="bg-white/10 p-2 rounded-lg">
-              <UserCircle className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Messages</span>
+            <UserCircle className="h-5 w-5" />
+            Messages
           </Link>
 
-          {/* Partners */}
           <Link
             href="/auth/admin-dashboard/partners"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition shadow-sm hover:shadow-md"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
           >
-            <div className="bg-white/10 p-2 rounded-lg">
-              <Settings className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Partners</span>
+            <Settings className="h-5 w-5" />
+            Partners
           </Link>
 
         </nav>
 
         {/* LOGOUT */}
         <div className="p-4 border-t border-cyan-600">
-          <button className="flex items-center gap-3 p-3 w-full rounded-xl bg-red-500/20 hover:bg-red-500 transition shadow-sm hover:shadow-md">
-            <div className="bg-white/10 p-2 rounded-lg">
-              <LogOut className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-medium">Logout</span>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-3 p-3 w-full rounded-xl bg-red-500/20 hover:bg-red-500 transition"
+          >
+            <LogOut className="h-5 w-5" />
+            Logout
           </button>
         </div>
 
@@ -124,7 +123,6 @@ export default function AdminLayout({
         {/* TOP BAR */}
         <header className="bg-white shadow px-4 py-3 flex items-center justify-between sticky top-0 z-40">
 
-          {/* Mobile Menu */}
           <button onClick={() => setOpen(!open)} className="md:hidden">
             {open ? <X /> : <Menu />}
           </button>
@@ -133,7 +131,6 @@ export default function AdminLayout({
             Admin Dashboard
           </h1>
 
-          {/* PROFILE ICON */}
           <button className="p-2 rounded-full hover:bg-gray-100">
             <UserCircle className="h-7 w-7 text-gray-600" />
           </button>
@@ -147,7 +144,6 @@ export default function AdminLayout({
             {children}
           </div>
 
-          {/* FOOTER */}
           <footer className="mt-6 text-center text-sm text-black py-4 border-t border-gray-200">
             © {new Date().getFullYear()} Nuru Njema Foundation
           </footer>

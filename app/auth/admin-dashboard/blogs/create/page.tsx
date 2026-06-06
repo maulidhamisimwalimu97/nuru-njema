@@ -2,13 +2,42 @@
 
 import { useState } from "react";
 import { ImagePlus, FileText, Send } from "lucide-react";
+import axios from "axios";
 
 export default function BlogsPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handlePublish = async () => {
+    if (!title || !content) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await axios.post("http://localhost:5000/api/blogs", {
+        title,
+        content,
+      });
+
+      alert(res.data.message || "Blog published!");
+
+      setTitle("");
+      setContent("");
+    } catch (error) {
+      console.log(error);
+      alert("Failed to publish blog");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full max-w-6xl mx-auto">
+
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
@@ -20,20 +49,24 @@ export default function BlogsPage() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Form Section */}
+
+        {/* FORM */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-2xl shadow-sm border p-6">
+
             <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <FileText className="h-5 w-5 text-cyan-600" />
               Create New Blog
             </h2>
 
             <div className="space-y-5">
-              {/* Title */}
+
+              {/* TITLE */}
               <div>
                 <label className="block text-sm font-medium mb-2">
                   Blog Title
                 </label>
+
                 <input
                   type="text"
                   placeholder="Enter blog title..."
@@ -43,11 +76,12 @@ export default function BlogsPage() {
                 />
               </div>
 
-              {/* Content */}
+              {/* CONTENT */}
               <div>
                 <label className="block text-sm font-medium mb-2">
                   Blog Content
                 </label>
+
                 <textarea
                   rows={12}
                   placeholder="Write your article here..."
@@ -57,13 +91,14 @@ export default function BlogsPage() {
                 />
               </div>
 
-              {/* Image Upload */}
+              {/* IMAGE (UI only for now) */}
               <div>
                 <label className="block text-sm font-medium mb-2">
                   Featured Image (Optional)
                 </label>
 
                 <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-2xl p-8 cursor-pointer hover:border-cyan-500 transition">
+
                   <ImagePlus className="h-12 w-12 text-gray-400 mb-3" />
 
                   <span className="text-gray-600 font-medium">
@@ -74,16 +109,13 @@ export default function BlogsPage() {
                     PNG, JPG, JPEG
                   </span>
 
-                  <input
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                  />
+                  <input type="file" accept="image/*" className="hidden" />
                 </label>
               </div>
 
-              {/* Buttons */}
+              {/* BUTTONS */}
               <div className="flex flex-col sm:flex-row gap-3">
+
                 <button
                   type="button"
                   className="px-6 py-3 rounded-xl bg-gray-200 hover:bg-gray-300 transition"
@@ -92,47 +124,46 @@ export default function BlogsPage() {
                 </button>
 
                 <button
+                  onClick={handlePublish}
+                  disabled={loading}
                   type="button"
-                  className="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white transition flex items-center justify-center gap-2"
+                  className="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white transition flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Send className="h-4 w-4" />
-                  Publish Blog
+                  {loading ? "Publishing..." : "Publish Blog"}
                 </button>
+
               </div>
             </div>
           </div>
         </div>
 
-        {/* Preview/Stats Section */}
+        {/* PREVIEW */}
         <div>
           <div className="bg-white rounded-2xl shadow-sm border p-6 sticky top-24">
+
             <h3 className="font-semibold text-lg mb-4">
               Blog Preview
             </h3>
 
             <div className="space-y-4">
-              <div>
-                <p className="text-xs text-gray-500 mb-1">
-                  TITLE
-                </p>
 
+              <div>
+                <p className="text-xs text-gray-500 mb-1">TITLE</p>
                 <h4 className="font-bold text-gray-800">
                   {title || "Your blog title will appear here"}
                 </h4>
               </div>
 
               <div>
-                <p className="text-xs text-gray-500 mb-1">
-                  CONTENT PREVIEW
-                </p>
-
+                <p className="text-xs text-gray-500 mb-1">CONTENT PREVIEW</p>
                 <p className="text-sm text-gray-600 line-clamp-6">
-                  {content ||
-                    "Start writing your article to see a preview here."}
+                  {content || "Start writing your article to see a preview here."}
                 </p>
               </div>
 
               <div className="pt-4 border-t">
+
                 <div className="flex justify-between text-sm">
                   <span>Characters</span>
                   <span>{content.length}</span>
@@ -141,19 +172,17 @@ export default function BlogsPage() {
                 <div className="flex justify-between text-sm mt-2">
                   <span>Words</span>
                   <span>
-                    {
-                      content
-                        .trim()
-                        .split(/\s+/)
-                        .filter(Boolean).length
-                    }
+                    {content.trim().split(/\s+/).filter(Boolean).length}
                   </span>
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
-      </div>      
+
+      </div>
     </div>
   );
 }

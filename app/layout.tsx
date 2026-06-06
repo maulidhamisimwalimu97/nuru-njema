@@ -3,6 +3,8 @@
 import type React from "react";
 import { usePathname } from "next/navigation";
 
+import { Toaster } from "react-hot-toast";
+
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -32,7 +34,6 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
-  // Hide layout elements for auth pages
   const isAuthPage =
     pathname.startsWith("/auth") ||
     pathname.startsWith("/login") ||
@@ -41,6 +42,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-background text-foreground">
+
+        {/* 🔔 GLOBAL TOAST SYSTEM (FIX IS HERE) */}
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              style: {
+                background: "#16a34a",
+                color: "#fff",
+              },
+            },
+            error: {
+              style: {
+                background: "#dc2626",
+                color: "#fff",
+              },
+            },
+          }}
+        />
 
         {/* Page Loader */}
         {!isAuthPage && <PageLoader />}
