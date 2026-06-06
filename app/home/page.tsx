@@ -22,12 +22,24 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+import axios from "axios";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+
+type Blog = {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+};
 
 export default function HomePage() {
   const fullText = "Empowering Youth Through Digital Skills";
   const [displayedText, setDisplayedText] = useState("");
+
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
 
   useEffect(() => {
     let i = 0;
@@ -41,9 +53,27 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+  // FETCH BLOGS (ONLY 3 LATEST)
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:5000/api/blogs?limit=3"
+        );
+        setBlogs(res.data);
+      } catch (error) {
+        console.log("Error loading blogs:", error);
+      } finally {
+        setLoadingBlogs(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
- 
+       
       {/* Hero Section */}
 <section className="bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -392,205 +422,58 @@ export default function HomePage() {
       </section>
 
       
-      {/* Our Blogs */}
-<section className="py-20 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* ================= BLOG SECTION (UPDATED) ================= */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
 
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-serif font-black text-gray-900 mb-4">
-        Our Latest Blogs
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-        Stay updated with insights, stories, and knowledge from Nuru Njema Foundation
-        as we empower youth through digital skills.
-      </p>
-    </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-black mb-4">
+              Our Latest Blogs
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Stay updated with insights and stories from Nuru Njema Foundation.
+            </p>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* BLOG GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      {/* Blog 1 */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img src="/images/23.jpeg" alt="Blog 1"
-          className="w-full h-48 object-cover" />
-        <div className="p-6">
-          <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-            The Future of Digital Skills in Tanzania
-          </h3>
-          <p className="text-gray-600 font-sans text-sm mb-4">
-            Discover how digital skills are shaping opportunities for young people
-            and transforming communities.
-          </p>
-
-          <Link href="/blogs/future-digital-skills">
-            <button className="text-cyan-600 font-semibold hover:underline">
-              Read More →
-            </button>
-          </Link>
-        </div>
-      </div>
-
-          {/* Blog 2 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img src="/images/23.jpeg" alt="Blog 2"
-                className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Why Youth Must Embrace Technology
-                </h3>
-                <p className="text-gray-600 font-sans text-sm mb-4">
-                  Technology is no longer optional — learn why every young person
-                  should build digital skills.
-                </p>
-
-                <Link href="/blogs/youth-technology">
-                  <button className="text-cyan-600 font-semibold hover:underline">
-                    Read More →
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog 3 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img src="/images/23.jpeg" alt="Blog 3"
-                className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Building a Strong Digital Future
-                </h3>
-                <p className="text-gray-600 font-sans text-sm mb-4">
-                  How Nuru Njema Foundation is creating opportunities through training,
-                  mentorship, and innovation.
-                </p>
-
-                <Link href="/blogs/digital-future">
-                  <button className="text-cyan-600 font-semibold hover:underline">
-                    Read More →
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog 4 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img src="/images/23.jpeg" alt="Blog 4"
-                className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Skills That Lead to Employment
-                </h3>
-                <p className="text-gray-600 font-sans text-sm mb-4">
-                  Explore the most in-demand digital skills that can help youth
-                  secure jobs and freelance opportunities.
-                </p>
-
-                <Link href="/blogs/employment-skills">
-                  <button className="text-cyan-600 font-semibold hover:underline">
-                    Read More →
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog 5 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img src="/images/23.jpeg" alt="Blog 5"
-                className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Empowering Communities Through Education
-                </h3>
-                <p className="text-gray-600 font-sans text-sm mb-4">
-                  Education remains the strongest tool for community transformation
-                  and youth empowerment.
-                </p>
-
-                <Link href="/blogs/education-impact">
-                  <button className="text-cyan-600 font-semibold hover:underline">
-                    Read More →
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog 6 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img src="/images/23.jpeg" alt="Blog 6"
-                className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                  Innovation Starts with You
-                </h3>
-                <p className="text-gray-600 font-sans text-sm mb-4">
-                  Every young person has the potential to innovate and create solutions
-                  for real-world problems.
-                </p>
-
-                <Link href="/blogs/innovation-starts">
-                  <button className="text-cyan-600 font-semibold hover:underline">
-                    Read More →
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Blog 7 */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <img
-                  src="/images/77.jpeg"
-                  alt="Blog 7"
-                  className="w-full h-48 object-cover"
-                />
-
-                <div className="p-6">
-                  <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                    Mafunzo ya Vitendo kwa Vijana: Kilimo na Masoko ya Kidigitali
-                  </h3>
-
-                  <p className="text-gray-600 font-sans text-sm mb-4">
-                    Nuru Njema Foundation inawapatia vijana mafunzo ya vitendo katika
-                    uzalishaji wa mazao, kilimo bora, na ujuzi wa kuuza bidhaa kupitia
-                    majukwaa ya kidigitali ili kuwasaidia kujiajiri na kuongeza kipato.
-                  </p>
-
-                  <Link href="/blogs/digital-agriculture-youth">
-                    <button className="text-cyan-600 font-semibold hover:underline">
-                      Read More →
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Blog 8 - Women Empowerment */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            {loadingBlogs ? (
+              <p className="text-center col-span-3">Loading blogs...</p>
+            ) : (
+              blogs.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition"
+                >
                   <img
-                    src="/images/78.jpeg"
-                    alt="Women Empowerment"
+                    src={blog.image}
+                    alt={blog.title}
                     className="w-full h-48 object-cover"
                   />
 
                   <div className="p-6">
-                    <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">
-                      Empowering Women in Economic Activities
+                    <h3 className="text-lg font-bold mb-2">
+                      {blog.title}
                     </h3>
 
-                    <p className="text-gray-600 font-sans text-sm mb-4">
-                      Nuru Njema Foundation inawawezesha wanawake kushiriki kikamilifu katika
-                      shughuli za kiuchumi, kuwajengea uwezo wa kujiamini, kutoa mawazo yao
-                      katika jamii, na kujihusisha na biashara na maendeleo endelevu.
+                    <p className="text-gray-600 text-sm mb-4">
+                      {blog.excerpt}
                     </p>
 
-                    <Link href="/blogs/women-economic-empowerment">
+                    <Link href={`/blogs/${blog.slug}`}>
                       <button className="text-cyan-600 font-semibold hover:underline">
                         Read More →
                       </button>
                     </Link>
                   </div>
                 </div>
+              ))
+            )}
 
           </div>
 
-          {/* Bottom Button */}
+          {/* VIEW ALL */}
           <div className="text-center mt-12">
             <Link href="/blogs">
               <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg text-lg font-semibold">

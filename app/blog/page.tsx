@@ -1,134 +1,177 @@
-import Navigation from "@/components/navigation"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar, Clock, ArrowRight, User } from "lucide-react"
-import Link from "next/link"
-import { getAllBlogPosts } from "@/lib/blog-data"
+"use client";
 
+import { useEffect, useState } from "react";
+import Navigation from "@/components/navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Calendar, Clock, ArrowRight, User } from "lucide-react";
+import Link from "next/link";
+import axios from "axios";
+
+type Blog = {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+  category?: string;
+  createdAt?: string;
+};
 
 export default function BlogPage() {
-  const blogPosts = getAllBlogPosts()
-  const featuredPost = blogPosts[0]
-  const recentPosts = blogPosts.slice(1)
+  const [blogPosts, setBlogPosts] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/blogs");
+        setBlogPosts(res.data);
+      } catch (error) {
+        console.log("Error loading blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const featuredPost = blogPosts[0];
+  const recentPosts = blogPosts.slice(1);
 
   return (
     <div className="min-h-screen bg-white">
-      
-     {/* Hero Section */}
-      <section className="relative py-20">
 
-        {/* Background Image */}
+      {/* HERO SECTION */}
+      <section className="relative py-20">
         <div className="absolute inset-0">
           <img
             src="/images/23.jpeg"
-            alt="Nuru Njema Blogs"
+            alt="Blogs"
             className="w-full h-full object-cover"
           />
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <h1 className="text-5xl font-serif font-black text-white mb-6">
+            Our <span className="text-cyan-400">Blogs</span>
+          </h1>
 
-            <h1 className="text-5xl md:text-6xl font-serif font-black text-white mb-6">
-              Our <span className="text-cyan-400">Blogs</span>
-            </h1>
-
-            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto font-sans">
-              Discover inspiring stories, digital skills tips, success journeys, and insights
-              from Nuru Njema Foundation as we empower youth through technology and innovation.
-            </p>
-
-          </div>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Discover stories, insights, and digital transformation journeys.
+          </p>
         </div>
-
       </section>
-      {/* Featured Post */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="mb-12">
-            <h2 className="text-3xl font-serif font-black text-gray-900 mb-8">
-              Featured Story
-            </h2>
+      {/* FEATURED POST */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
 
-            <Card className="border-0 shadow-xl overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
+          <h2 className="text-3xl font-bold mb-8">Featured Story</h2>
 
-                {/* Image */}
-                <div className="relative">
-                  <img
-                    src="/images/77.jpeg"
-                    alt="Featured Story"
-                    className="w-full h-64 lg:h-full object-cover"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-cyan-600 text-white">
-                    Agriculture & Digital Skills
-                  </Badge>
-                </div>
+          {loading ? (
+            <p>Loading featured blog...</p>
+          ) : featuredPost ? (
+            <Card className="overflow-hidden shadow-xl">
+              <div className="grid lg:grid-cols-2">
 
-                {/* Content */}
+                <img
+                  src={featuredPost.image}
+                  className="w-full h-full object-cover"
+                />
+
                 <div className="p-8 flex flex-col justify-between">
 
                   <div>
+                    <CardTitle className="text-2xl mb-4">
+                      {featuredPost.title}
+                    </CardTitle>
 
-                    <CardHeader className="p-0 mb-4">
-                      <CardTitle className="text-2xl font-serif font-bold text-gray-900 mb-3">
-                        Empowering Youth Through Agriculture & Digital Markets
-                      </CardTitle>
+                    <p className="text-gray-600 mb-6">
+                      {featuredPost.excerpt}
+                    </p>
 
-                      <p className="text-gray-600 font-sans leading-relaxed">
-                        Nuru Njema Foundation inawapatia vijana mafunzo ya vitendo
-                        katika kilimo cha kisasa, uzalishaji wa mazao, na jinsi ya
-                        kuuza bidhaa zao kupitia majukwaa ya kidigitali ili kuongeza
-                        kipato na kujiajiri.
-                      </p>
-                    </CardHeader>
+                    <div className="flex gap-4 text-sm text-gray-500 mb-6">
+                      <span className="flex items-center gap-1">
+                        <User className="w-4 h-4" />
+                        Admin
+                      </span>
 
-                    <div className="flex items-center space-x-4 text-sm text-gray-500 font-sans mb-6">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date().toLocaleDateString()}
+                      </span>
 
-                      <div className="flex items-center">
-                        <User className="h-4 w-4 mr-1" />
-                        Nuru Njema Team
-                      </div>
-
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {new Date().toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </div>
-
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
                         5 min read
-                      </div>
-
+                      </span>
                     </div>
-
                   </div>
 
-                  <Link href="/blog/youth-agriculture-digital-markets">
-                    <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
+                  <Link href={`/blogs/${featuredPost.slug}`}>
+                    <Button className="bg-cyan-600 hover:bg-cyan-700">
                       Read Full Story
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
 
                 </div>
               </div>
             </Card>
-
-          </div>
+          ) : (
+            <p>No blogs found.</p>
+          )}
         </div>
       </section>
 
-     
-          </div>
-          ) 
-          }
+      {/* RECENT POSTS */}
+      <section className="pb-20">
+        <div className="max-w-7xl mx-auto px-4">
+
+          <h2 className="text-2xl font-bold mb-8">Recent Blogs</h2>
+
+          {loading ? (
+            <p>Loading blogs...</p>
+          ) : (
+            <div className="grid md:grid-cols-3 gap-8">
+
+              {recentPosts.map((post) => (
+                <Card key={post.id} className="overflow-hidden hover:shadow-xl transition">
+                  <img
+                    src={post.image}
+                    className="h-48 w-full object-cover"
+                  />
+
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      {post.title}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-gray-600 text-sm mb-4">
+                      {post.excerpt}
+                    </p>
+
+                    <Link href={`/blogs/${post.slug}`}>
+                      <Button variant="link" className="text-cyan-600 p-0">
+                        Read More →
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+
+            </div>
+          )}
+
+        </div>
+      </section>
+
+    </div>
+  );
+}

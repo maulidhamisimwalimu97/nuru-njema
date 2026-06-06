@@ -43,20 +43,35 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-background text-foreground">
 
-        {/* 🔔 GLOBAL TOAST SYSTEM (FIX IS HERE) */}
+        {/* 🔔 GLOBAL TOAST SYSTEM */}
         <Toaster
           position="top-right"
+          reverseOrder={false}
           toastOptions={{
+            duration: 4000,
+            style: {
+              borderRadius: "10px",
+              padding: "12px 16px",
+              fontSize: "14px",
+            },
             success: {
               style: {
                 background: "#16a34a",
                 color: "#fff",
+              },
+              iconTheme: {
+                primary: "#fff",
+                secondary: "#16a34a",
               },
             },
             error: {
               style: {
                 background: "#dc2626",
                 color: "#fff",
+              },
+              iconTheme: {
+                primary: "#fff",
+                secondary: "#dc2626",
               },
             },
           }}

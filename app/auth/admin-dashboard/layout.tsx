@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import {
   Menu,
@@ -20,20 +21,27 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
-  // example logout toast (you can later connect API)
+  // 🔥 REAL LOGOUT (destroy session + redirect)
   const handleLogout = () => {
+    // 🧨 destroy token/session
+    localStorage.removeItem("token");
+    localStorage.clear();
+
+    // toast
     toast.success("Logged out successfully 👋");
+
+    // redirect to login
     setTimeout(() => {
-      // later: redirect to login
-      console.log("logout");
-    }, 1000);
+      router.push("/auth/login");
+    }, 800);
   };
 
   return (
     <div className="min-h-screen flex bg-gray-100 overflow-hidden">
 
-      {/* 🔔 TOAST CONTAINER */}
+      {/* 🔔 TOAST */}
       <Toaster position="top-right" />
 
       {/* SIDEBAR */}
@@ -62,42 +70,32 @@ export default function AdminLayout({
         {/* NAV */}
         <nav className="flex-1 overflow-y-auto p-4 space-y-3">
 
-          <Link
-            href="/auth/admin-dashboard"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
-          >
+          <Link href="/auth/admin-dashboard"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition">
             <Home className="h-5 w-5" />
             Dashboard
           </Link>
 
-          <Link
-            href="/auth/admin-dashboard/blogs/create"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
-          >
+          <Link href="/auth/admin-dashboard/blogs/create"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition">
             <FileText className="h-5 w-5" />
             Blogs
           </Link>
 
-          <Link
-            href="/auth/admin-dashboard/donors"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
-          >
+          <Link href="/auth/admin-dashboard/donors"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition">
             <Users className="h-5 w-5" />
             Donors
           </Link>
 
-          <Link
-            href="/auth/admin-dashboard/messages"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
-          >
+          <Link href="/auth/admin-dashboard/messages"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition">
             <UserCircle className="h-5 w-5" />
             Messages
           </Link>
 
-          <Link
-            href="/auth/admin-dashboard/partners"
-            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition"
-          >
+          <Link href="/auth/admin-dashboard/partners"
+            className="flex items-center gap-3 p-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 transition">
             <Settings className="h-5 w-5" />
             Partners
           </Link>
@@ -117,7 +115,7 @@ export default function AdminLayout({
 
       </aside>
 
-      {/* MAIN AREA */}
+      {/* MAIN */}
       <div className="flex-1 flex flex-col w-full min-w-0 h-screen overflow-y-auto">
 
         {/* TOP BAR */}

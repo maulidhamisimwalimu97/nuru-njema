@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, Users } from "lucide-react";
+import axios from "axios";
 
 type Donor = {
   id: number;
@@ -12,31 +13,25 @@ type Donor = {
 };
 
 export default function DonorsPage() {
-  const [donors] = useState<Donor[]>([
-    {
-      id: 1,
-      name: "John Mwangi",
-      email: "john@example.com",
-      amount: 50000,
-      date: "2026-06-01",
-    },
-    {
-      id: 2,
-      name: "Amina Hassan",
-      email: "amina@example.com",
-      amount: 30000,
-      date: "2026-06-03",
-    },
-    {
-      id: 3,
-      name: "David Kimaro",
-      email: "david@example.com",
-      amount: 100000,
-      date: "2026-06-05",
-    },
-  ]);
-
+  const [donors, setDonors] = useState<Donor[]>([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  // ✅ FETCH FROM DATABASE
+  useEffect(() => {
+    const fetchDonors = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/donors");
+        setDonors(res.data);
+      } catch (error) {
+        console.log("Error loading donors:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDonors();
+  }, []);
 
   const filteredDonors = donors.filter(
     (donor) =>
@@ -77,58 +72,57 @@ export default function DonorsPage() {
         </div>
       </div>
 
-      {/* TABLE (FIXED RESPONSIVE) */}
-      <div className="bg-white border rounded-2xl shadow-sm overflow-x-auto">
+      {/* LOADING */}
+      {loading ? (
+        <p className="text-center py-10">Loading donors...</p>
+      ) : (
+        <div className="bg-white border rounded-2xl shadow-sm overflow-x-auto">
 
-        <table className="w-full min-w-[650px]">
+          <table className="w-full min-w-[650px]">
 
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-4 text-left">Name</th>
-              <th className="p-4 text-left">Email</th>
-              <th className="p-4 text-left">Amount (TZS)</th>
-              <th className="p-4 text-left whitespace-nowrap">Date</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {filteredDonors.map((donor) => (
-              <tr key={donor.id} className="border-t hover:bg-gray-50">
-
-                {/* NAME */}
-                <td className="p-4 font-medium whitespace-nowrap">
-                  {donor.name}
-                </td>
-
-                {/* EMAIL */}
-                <td className="p-4 text-gray-600 whitespace-nowrap">
-                  {donor.email}
-                </td>
-
-                {/* AMOUNT */}
-                <td className="p-4 font-semibold text-green-600 whitespace-nowrap">
-                  {donor.amount.toLocaleString()}
-                </td>
-
-                {/* DATE */}
-                <td className="p-4 text-gray-600 whitespace-nowrap">
-                  {donor.date}
-                </td>
-
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="p-4 text-left">Name</th>
+                <th className="p-4 text-left">Email</th>
+                <th className="p-4 text-left">Amount (TZS)</th>
+                <th className="p-4 text-left">Date</th>
               </tr>
-            ))}
-          </tbody>
+            </thead>
 
-        </table>
+            <tbody>
+              {filteredDonors.map((donor) => (
+                <tr key={donor.id} className="border-t hover:bg-gray-50">
 
-        {/* EMPTY STATE */}
-        {filteredDonors.length === 0 && (
-          <div className="text-center py-10 text-gray-500">
-            No donors found
-          </div>
-        )}
+                  <td className="p-4 font-medium">
+                    {donor.name}
+                  </td>
 
-      </div>
+                  <td className="p-4 text-gray-600">
+                    {donor.email}
+                  </td>
+
+                  <td className="p-4 font-semibold text-green-600">
+                    {donor.amount.toLocaleString()}
+                  </td>
+
+                  <td className="p-4 text-gray-600">
+                    {donor.date}
+                  </td>
+
+                </tr>
+              ))}
+            </tbody>
+
+          </table>
+
+          {filteredDonors.length === 0 && (
+            <div className="text-center py-10 text-gray-500">
+              No donors found
+            </div>
+          )}
+
+        </div>
+      )}
     </div>
   );
 }

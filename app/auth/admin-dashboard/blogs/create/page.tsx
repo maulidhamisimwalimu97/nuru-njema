@@ -3,42 +3,61 @@
 import { useState } from "react";
 import { ImagePlus, FileText, Send } from "lucide-react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function BlogsPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handlePublish = async () => {
     if (!title || !content) {
-      alert("Please fill all fields");
+      toast.error("❌ Please fill all fields");
       return;
     }
 
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:5000/api/blogs", {
-        title,
-        content,
-      });
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("content", content);
 
-      alert(res.data.message || "Blog published!");
+      if (image) {
+        formData.append("image", image);
+      }
+
+      const res = await axios.post(
+        "http://localhost:5000/api/blogs",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      toast.success(res.data.message || "🎉 Blog published successfully!");
 
       setTitle("");
       setContent("");
-    } catch (error) {
+      setImage(null);
+    } catch (error: any) {
       console.log(error);
-      alert("Failed to publish blog");
+
+      toast.error(
+        error?.response?.data?.message || "❌ Failed to publish blog"
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto px-4 py-6">
 
-      {/* Header */}
+      {/* HEADER */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
           Blog Management
@@ -48,137 +67,93 @@ export default function BlogsPage() {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      {/* GRID */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {/* FORM */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-2xl shadow-sm border p-6">
+          <div className="bg-white rounded-2xl shadow-md border p-8">
 
             <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <FileText className="h-5 w-5 text-cyan-600" />
               Create New Blog
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
 
               {/* TITLE */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Blog Title
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="Enter blog title..."
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-              </div>
+              <input
+                type="text"
+                placeholder="Enter blog title..."
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full border rounded-xl px-4 py-3"
+              />
 
               {/* CONTENT */}
+              <textarea
+                rows={14}
+                placeholder="Write your article here..."
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                className="w-full border rounded-xl px-4 py-3"
+              />
+
+              {/* IMAGE */}
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Blog Content
-                </label>
+                <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-2xl p-8 cursor-pointer hover:border-cyan-500">
 
-                <textarea
-                  rows={12}
-                  placeholder="Write your article here..."
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-3 resize-none outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-              </div>
+                  <ImagePlus className="h-10 w-10 text-gray-400 mb-2" />
 
-              {/* IMAGE (UI only for now) */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Featured Image (Optional)
-                </label>
-
-                <label className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-2xl p-8 cursor-pointer hover:border-cyan-500 transition">
-
-                  <ImagePlus className="h-12 w-12 text-gray-400 mb-3" />
-
-                  <span className="text-gray-600 font-medium">
-                    Click to upload image
+                  <span className="text-sm text-gray-600">
+                    {image ? image.name : "Click to upload image"}
                   </span>
 
-                  <span className="text-sm text-gray-400 mt-1">
-                    PNG, JPG, JPEG
-                  </span>
-
-                  <input type="file" accept="image/*" className="hidden" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        setImage(e.target.files[0]);
+                      }
+                    }}
+                  />
                 </label>
               </div>
 
-              {/* BUTTONS */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              {/* BUTTON */}
+              <button
+                onClick={handlePublish}
+                disabled={loading}
+                className="w-full px-6 py-3 rounded-xl bg-cyan-600 text-white"
+              >
+                <Send className="inline w-4 h-4 mr-2" />
+                {loading ? "Publishing..." : "Publish Blog"}
+              </button>
 
-                <button
-                  type="button"
-                  className="px-6 py-3 rounded-xl bg-gray-200 hover:bg-gray-300 transition"
-                >
-                  Save Draft
-                </button>
-
-                <button
-                  onClick={handlePublish}
-                  disabled={loading}
-                  type="button"
-                  className="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white transition flex items-center justify-center gap-2 disabled:opacity-50"
-                >
-                  <Send className="h-4 w-4" />
-                  {loading ? "Publishing..." : "Publish Blog"}
-                </button>
-
-              </div>
             </div>
           </div>
         </div>
 
         {/* PREVIEW */}
-        <div>
-          <div className="bg-white rounded-2xl shadow-sm border p-6 sticky top-24">
+        <div className="hidden lg:block">
+          <div className="bg-white p-6 rounded-2xl border sticky top-24">
 
-            <h3 className="font-semibold text-lg mb-4">
-              Blog Preview
-            </h3>
+            <h3 className="font-bold mb-3">Preview</h3>
 
-            <div className="space-y-4">
+            <p className="text-xs text-gray-500">TITLE</p>
+            <p className="font-bold mb-3">{title || "..."}</p>
 
-              <div>
-                <p className="text-xs text-gray-500 mb-1">TITLE</p>
-                <h4 className="font-bold text-gray-800">
-                  {title || "Your blog title will appear here"}
-                </h4>
-              </div>
+            <p className="text-xs text-gray-500">CONTENT</p>
+            <p className="text-sm">{content || "..."}</p>
 
-              <div>
-                <p className="text-xs text-gray-500 mb-1">CONTENT PREVIEW</p>
-                <p className="text-sm text-gray-600 line-clamp-6">
-                  {content || "Start writing your article to see a preview here."}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t">
-
-                <div className="flex justify-between text-sm">
-                  <span>Characters</span>
-                  <span>{content.length}</span>
-                </div>
-
-                <div className="flex justify-between text-sm mt-2">
-                  <span>Words</span>
-                  <span>
-                    {content.trim().split(/\s+/).filter(Boolean).length}
-                  </span>
-                </div>
-
-              </div>
-
-            </div>
+            {image && (
+              <img
+                src={URL.createObjectURL(image)}
+                className="mt-4 rounded-xl"
+              />
+            )}
           </div>
         </div>
 

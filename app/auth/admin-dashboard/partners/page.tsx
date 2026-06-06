@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Search, Users, Trash2, Pencil } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Search, Users, Trash2 } from "lucide-react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 type Partner = {
   id: number;
@@ -13,40 +15,42 @@ type Partner = {
 };
 
 export default function PartnersPage() {
-  const [partners, setPartners] = useState<Partner[]>([
-    {
-      id: 1,
-      name: "Hope Foundation",
-      email: "info@hope.org",
-      phone: "+255 712 000 111",
-      type: "NGO",
-      date: "2026-06-01",
-    },
-    {
-      id: 2,
-      name: "Tanzania Health Org",
-      email: "contact@tho.org",
-      phone: "+255 754 222 333",
-      type: "Health",
-      date: "2026-06-03",
-    },
-    {
-      id: 3,
-      name: "EduCare Partners",
-      email: "info@educare.com",
-      phone: "+255 768 444 555",
-      type: "Education",
-      date: "2026-06-05",
-    },
-  ]);
-
+  const [partners, setPartners] = useState<Partner[]>([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  // DELETE PARTNER
-  const handleDelete = (id: number) => {
+  // ✅ FETCH FROM DATABASE
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/partners");
+        setPartners(res.data);
+      } catch (error) {
+        console.log("Error loading partners:", error);
+        toast.error("Failed to load partners");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPartners();
+  }, []);
+
+  // DELETE PARTNER (DB + UI)
+  const handleDelete = async (id: number) => {
     const confirmDelete = confirm("Delete this partner?");
-    if (confirmDelete) {
-      setPartners(partners.filter((p) => p.id !== id));
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://localhost:5000/api/partners/${id}`);
+
+      // remove from UI
+      setPartners((prev) => prev.filter((p) => p.id !== id));
+
+      toast.success("🗑️ Partner deleted successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error("❌ Failed to delete partner");
     }
   };
 
@@ -91,85 +95,72 @@ export default function PartnersPage() {
         </div>
       </div>
 
-      {/* TABLE */}
-      <div className="bg-white border rounded-2xl shadow-sm overflow-x-auto">
+      {/* LOADING */}
+      {loading ? (
+        <p className="text-center py-10">Loading partners...</p>
+      ) : (
+        <div className="bg-white border rounded-2xl shadow-sm overflow-x-auto">
 
-        <table className="w-full min-w-[750px]">
+          <table className="w-full min-w-[750px]">
 
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-4 text-left">Name</th>
-              <th className="p-4 text-left">Email</th>
-              <th className="p-4 text-left">Phone</th>
-              <th className="p-4 text-left">Type</th>
-              <th className="p-4 text-left">Date</th>
-              <th className="p-4 text-center">Actions</th>
-            </tr>
-          </thead>
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="p-4 text-left">Name</th>
+                <th className="p-4 text-left">Email</th>
+                <th className="p-4 text-left">Phone</th>
+                <th className="p-4 text-left">Type</th>
+                <th className="p-4 text-left">Date</th>
+                <th className="p-4 text-center">Actions</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {filteredPartners.map((partner) => (
-              <tr key={partner.id} className="border-t hover:bg-gray-50">
+            <tbody>
+              {filteredPartners.map((partner) => (
+                <tr key={partner.id} className="border-t hover:bg-gray-50">
 
-                {/* NAME */}
-                <td className="p-4 font-medium whitespace-nowrap">
-                  {partner.name}
-                </td>
+                  <td className="p-4 font-medium">
+                    {partner.name}
+                  </td>
 
-                {/* EMAIL */}
-                <td className="p-4 text-gray-600 whitespace-nowrap">
-                  {partner.email}
-                </td>
+                  <td className="p-4 text-gray-600">
+                    {partner.email}
+                  </td>
 
-                {/* PHONE */}
-                <td className="p-4 text-gray-600 whitespace-nowrap">
-                  {partner.phone}
-                </td>
+                  <td className="p-4 text-gray-600">
+                    {partner.phone}
+                  </td>
 
-                {/* TYPE */}
-                <td className="p-4 text-cyan-700 font-medium whitespace-nowrap">
-                  {partner.type}
-                </td>
+                  <td className="p-4 text-cyan-700 font-medium">
+                    {partner.type}
+                  </td>
 
-                {/* DATE */}
-                <td className="p-4 text-gray-600 whitespace-nowrap">
-                  {partner.date}
-                </td>
+                  <td className="p-4 text-gray-600">
+                    {partner.date}
+                  </td>
 
-                {/* ACTIONS */}
-                <td className="p-4">
-                  <div className="flex justify-center gap-3">
-
-                    {/* EDIT */}
-                    <button className="p-2 bg-blue-100 rounded-lg hover:bg-blue-200">
-                      <Pencil className="h-4 w-4 text-blue-600" />
-                    </button>
-
-                    {/* DELETE */}
+                  <td className="p-4 text-center">
                     <button
                       onClick={() => handleDelete(partner.id)}
                       className="p-2 bg-red-100 rounded-lg hover:bg-red-200"
                     >
                       <Trash2 className="h-4 w-4 text-red-600" />
                     </button>
+                  </td>
 
-                  </div>
-                </td>
+                </tr>
+              ))}
+            </tbody>
 
-              </tr>
-            ))}
-          </tbody>
+          </table>
 
-        </table>
+          {filteredPartners.length === 0 && (
+            <div className="text-center py-10 text-gray-500">
+              No partners found
+            </div>
+          )}
 
-        {/* EMPTY STATE */}
-        {filteredPartners.length === 0 && (
-          <div className="text-center py-10 text-gray-500">
-            No partners found
-          </div>
-        )}
-
-      </div>
+        </div>
+      )}
     </div>
   );
 }
