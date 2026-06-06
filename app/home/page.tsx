@@ -73,7 +73,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-       
+
       {/* Hero Section */}
 <section className="bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -461,7 +461,7 @@ export default function HomePage() {
                       {blog.excerpt}
                     </p>
 
-                    <Link href={`/blogs/${blog.slug}`}>
+                    <Link href={`/blog/${blog.id}`}>
                       <button className="text-cyan-600 font-semibold hover:underline">
                         Read More →
                       </button>
@@ -475,7 +475,7 @@ export default function HomePage() {
 
           {/* VIEW ALL */}
           <div className="text-center mt-12">
-            <Link href="/blogs">
+            <Link href="/blog">
               <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg text-lg font-semibold">
                 View All Blogs
               </button>

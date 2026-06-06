@@ -112,7 +112,7 @@ export default function BlogPage() {
                     </div>
                   </div>
 
-                  <Link href={`/blogs/${featuredPost.slug}`}>
+                  <Link href={`/blog/${featuredPost.id}`}>
                     <Button className="bg-cyan-600 hover:bg-cyan-700">
                       Read Full Story
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -157,7 +157,7 @@ export default function BlogPage() {
                       {post.excerpt}
                     </p>
 
-                    <Link href={`/blogs/${post.slug}`}>
+                    <Link href={`/blog/${post.id}`}>
                       <Button variant="link" className="text-cyan-600 p-0">
                         Read More →
                       </Button>
