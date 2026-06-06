@@ -1,20 +1,69 @@
-"use client"
+"use client";
 
-import Navigation from "@/components/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Heart, DollarSign, Users, Target } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
+import { useState } from "react";
+import axios from "axios";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+import { Heart, DollarSign, Users, Target } from "lucide-react";
+import toast from "react-hot-toast";
+
 
 export default function DonatePage() {
-  const [amount, setAmount] = useState("")
+
+  const [loading, setLoading] = useState(false);
+
+  const [amount, setAmount] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    amount: "",
+  });
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    setLoading(true);
+
+    await axios.post("http://localhost:5000/api/donors", {
+      ...formData,
+      amount: amount || formData.amount,
+    });
+
+    // ✅ SUCCESS TOAST (react-hot-toast)
+    toast.success("Thank you ❤️ Donation received successfully!");
+
+    setFormData({
+      name: "",
+      email: "",
+      amount: "",
+    });
+
+    setAmount("");
+  } catch (error) {
+    console.log(error);
+
+    // ❌ ERROR TOAST
+    toast.error("Failed to send donation. Try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      
 
       {/* HERO */}
       <section className="bg-gradient-to-br from-gray-50 to-white py-20">
@@ -23,12 +72,12 @@ export default function DonatePage() {
             <Heart className="h-8 w-8 text-cyan-600" />
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-serif font-black text-gray-900 mb-6">
+          <h1 className="text-5xl font-serif font-black mb-6">
             Support Our <span className="text-cyan-600">Mission</span>
           </h1>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-            Your donation helps us empower youth with digital skills, education, and innovation opportunities across Tanzania.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Your donation helps us empower youth with digital skills and innovation opportunities.
           </p>
         </div>
       </section>
@@ -37,41 +86,27 @@ export default function DonatePage() {
       <section className="py-20 flex-1">
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
 
-          {/* Left Info */}
-          <div>
-            <h2 className="text-3xl font-serif font-bold mb-6 text-gray-900">
-              Why Your Support Matters
-            </h2>
+          {/* LEFT */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold">Why Your Support Matters</h2>
 
-            <div className="space-y-6 text-gray-600 font-sans">
-
-              <div className="flex gap-3">
-                <Users className="text-cyan-600" />
-                <p>We train youth in digital skills and entrepreneurship.</p>
-              </div>
-
-              <div className="flex gap-3">
-                <Target className="text-cyan-600" />
-                <p>We support innovation programs for job creation.</p>
-              </div>
-
-              <div className="flex gap-3">
-                <DollarSign className="text-cyan-600" />
-                <p>Every donation directly funds education and training programs.</p>
-              </div>
-
+            <div className="flex gap-3">
+              <Users className="text-cyan-600" />
+              <p>We train youth in digital skills.</p>
             </div>
 
-            <div className="mt-10">
-              <img
-                src="/images/23.jpeg"
-                alt="donation"
-                className="rounded-xl shadow-lg"
-              />
+            <div className="flex gap-3">
+              <Target className="text-cyan-600" />
+              <p>We support innovation and job creation.</p>
+            </div>
+
+            <div className="flex gap-3">
+              <DollarSign className="text-cyan-600" />
+              <p>Your donation funds education programs.</p>
             </div>
           </div>
 
-          {/* Right Form */}
+          {/* RIGHT FORM */}
           <Card className="shadow-xl border-0">
             <CardContent className="p-8">
 
@@ -79,34 +114,52 @@ export default function DonatePage() {
                 Make a Donation
               </h3>
 
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
 
                 <div>
                   <Label>Full Name</Label>
-                  <Input placeholder="Your name" />
+                  <Input
+                    value={formData.name}
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    placeholder="Your name"
+                    required
+                  />
                 </div>
 
                 <div>
                   <Label>Email</Label>
-                  <Input type="email" placeholder="you@example.com" />
+                  <Input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    placeholder="you@example.com"
+                    required
+                  />
                 </div>
 
                 <div>
                   <Label>Amount (USD / TZS)</Label>
                   <Input
                     value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
+                    onChange={(e) => {
+                      setAmount(e.target.value);
+                      handleChange("amount", e.target.value);
+                    }}
                     placeholder="e.g 50, 100, 500"
+                    required
                   />
                 </div>
 
-                {/* Quick buttons */}
+                {/* QUICK AMOUNTS */}
                 <div className="grid grid-cols-3 gap-2">
                   {["10", "50", "100"].map((val) => (
                     <button
                       type="button"
                       key={val}
-                      onClick={() => setAmount(val)}
+                      onClick={() => {
+                        setAmount(val);
+                        handleChange("amount", val);
+                      }}
                       className="border rounded-lg py-2 hover:bg-cyan-50"
                     >
                       ${val}
@@ -114,8 +167,12 @@ export default function DonatePage() {
                   ))}
                 </div>
 
-                <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
-                  Donate Now ❤️
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-cyan-600 hover:bg-cyan-700"
+                >
+                  {loading ? "Processing..." : "Donate Now ❤️"}
                 </Button>
 
                 <p className="text-xs text-gray-500 text-center">
@@ -126,7 +183,6 @@ export default function DonatePage() {
 
             </CardContent>
           </Card>
-
         </div>
       </section>
 

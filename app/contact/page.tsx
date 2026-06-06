@@ -1,92 +1,69 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
-import Navigation from "@/components/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
 import {
-  MapPin,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import {
+  MessageSquare,
+  Send,
   Phone,
   Mail,
-  Clock,
-  Send,
-  MessageSquare,
-  Calendar,
-  Users,
+  UserCircle,
   ArrowRight,
-  CheckCircle,
-  UserCircle // ✅ FIXED: added missing import
-} from "lucide-react"
-
-import Link from "next/link"
-import { useState } from "react"
+} from "lucide-react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    subject: "",
-    investmentAmount: "",
-    message: "",
-    preferredContact: "",
-  })
+  const [loading, setLoading] = useState(false);
 
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Contact form submission:", formData)
-    setIsSubmitted(true)
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-white">
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md w-full text-center">
-            <div className="mx-auto h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-              <CheckCircle className="h-8 w-8 text-green-600" />
-            </div>
+    try {
+      setLoading(true);
 
-            <h2 className="text-3xl font-serif font-black text-gray-900 mb-4">
-              Thank You!
-            </h2>
+      await axios.post("http://localhost:5000/api/messages", formData);
 
-            <p className="text-gray-600 font-sans mb-8">
-              We have received your message. The Nuru Njema Foundation team will respond within 24 hours.
-            </p>
+      toast.success("Message sent successfully 🎉");
 
-            <div className="space-y-4">
-              <Link href="/">
-                <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
-                  Back to Home
-                </Button>
-              </Link>
-
-              <Button
-                variant="outline"
-                onClick={() => setIsSubmitted(false)}
-                className="w-full border-cyan-600 text-cyan-600 hover:bg-cyan-50"
-              >
-                Send Another Message
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -158,38 +135,56 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form */}
+        {/* FORM */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4">
 
-          <Card className="border-0 shadow-xl">
+          <Card className="shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-serif font-bold flex items-center">
                 <MessageSquare className="h-6 w-6 text-cyan-600 mr-3" />
                 Partnership & Donor Engagement
               </CardTitle>
-              <p className="text-gray-600">
-                Connect with us for collaboration, funding, and impact updates.
-              </p>
             </CardHeader>
 
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input placeholder="Organization / Name *" required />
-                  <Input placeholder="Country *" required />
-                </div>
+                {/* NAME */}
+                <Input
+                  placeholder="Organization / Name *"
+                  value={formData.name}
+                  onChange={(e) =>
+                    handleInputChange("name", e.target.value)
+                  }
+                  required
+                />
 
-                <Input type="email" placeholder="Official Email *" required />
-                <Input type="tel" placeholder="Phone Number" />
+                {/* EMAIL */}
+                <Input
+                  type="email"
+                  placeholder="Official Email *"
+                  value={formData.email}
+                  onChange={(e) =>
+                    handleInputChange("email", e.target.value)
+                  }
+                  required
+                />
 
-                <Select>
+                {/* SUBJECT (from select) */}
+                <Select
+                  onValueChange={(value) =>
+                    handleInputChange("subject", value)
+                  }
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Engagement Type" />
                   </SelectTrigger>
+
                   <SelectContent>
-                    <SelectItem value="donor">Donor / Funding Partner</SelectItem>
+                    <SelectItem value="donor">
+                      Donor / Funding Partner
+                    </SelectItem>
                     <SelectItem value="csr">CSR</SelectItem>
                     <SelectItem value="ngo">NGO Collaboration</SelectItem>
                     <SelectItem value="research">Research</SelectItem>
@@ -197,14 +192,24 @@ export default function ContactPage() {
                   </SelectContent>
                 </Select>
 
+                {/* MESSAGE */}
                 <Textarea
                   placeholder="Describe your interest..."
                   rows={5}
+                  value={formData.message}
+                  onChange={(e) =>
+                    handleInputChange("message", e.target.value)
+                  }
                   required
                 />
 
-                <Button type="submit" className="w-full bg-cyan-600 text-white">
-                  Submit Partnership Request
+                {/* SUBMIT */}
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-cyan-600 text-white"
+                >
+                  {loading ? "Sending..." : "Submit Request"}
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
 

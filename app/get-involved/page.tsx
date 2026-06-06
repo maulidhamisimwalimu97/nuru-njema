@@ -1,133 +1,230 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useState } from "react";
+import axios from "axios";
 
-import Navigation from "@/components/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Eye, EyeOff, ArrowRight, UserPlus } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import { ArrowRight, UserPlus } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function RegisterPage() {
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
+
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
-    password: "",
-    confirmPassword: "",
-    interestArea: "",
-    agreeToTerms: false,
-    agreeToUpdates: false,
-  })
+    type: "",
+  });
 
-  const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+  const handleInputChange = (
+    field: string,
+    value: string
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Get involved submission:", formData)
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    setLoading(true);
+
+    await axios.post(
+      "http://localhost:5000/api/partners",
+      formData
+    );
+
+    // ✅ SUCCESS TOAST
+    toast.success(
+      "🎉 Your partnership request has been submitted successfully!"
+    );
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      type: "",
+    });
+  } catch (error) {
+    console.error(error);
+
+    // ❌ ERROR TOAST
+    toast.error("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
   }
+};
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      
-
-     {/* MAIN CONTENT */}
-      <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8">
-
+      <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white py-12 px-4">
         <div className="max-w-2xl w-full space-y-8">
-
+          
           {/* Header */}
           <div className="text-center">
             <div className="mx-auto h-16 w-16 bg-cyan-100 rounded-full flex items-center justify-center mb-6">
               <UserPlus className="h-8 w-8 text-cyan-600" />
             </div>
+
             <h2 className="text-3xl font-serif font-black text-gray-900">
-              Get Involved
+              Become a Partner
             </h2>
-            <p className="mt-2 text-gray-600 font-sans">
-              Join Nuru Njema Foundation and be part of empowering youth through digital skills and innovation.
+
+            <p className="mt-3 text-gray-600">
+              Join Nuru Njema Foundation and help empower youth through
+              digital skills, innovation, entrepreneurship, and
+              technology-driven opportunities.
             </p>
           </div>
 
-          {/* Form Card */}
-          <Card className="border-0 shadow-xl">
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-serif font-bold">
-                Join the Movement
+          {/* Form */}
+          <Card className="shadow-xl border-0">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl">
+                Partnership Application
               </CardTitle>
-              <CardDescription className="font-sans">
-                Fill in your details to become part of our community
+
+              <CardDescription>
+                Complete the form below and our team will contact you.
               </CardDescription>
             </CardHeader>
 
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-
-                {/* Names */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input placeholder="First Name" required />
-                  <Input placeholder="Last Name" required />
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <div>
+                  <Label>Full Name</Label>
+                  <Input
+                    value={formData.name}
+                    onChange={(e) =>
+                      handleInputChange(
+                        "name",
+                        e.target.value
+                      )
+                    }
+                    placeholder="Enter your full name"
+                    required
+                  />
                 </div>
 
-                {/* Contact */}
-                <Input type="email" placeholder="Email Address" required />
-                <Input type="tel" placeholder="Phone Number" required />
-
-                {/* Interest */}
-                <Select onValueChange={(value) => handleInputChange("interestArea", value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Area of Interest" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="training">Digital Skills Training</SelectItem>
-                    <SelectItem value="volunteering">Volunteering</SelectItem>
-                    <SelectItem value="mentorship">Mentorship</SelectItem>
-                    <SelectItem value="partnership">Partnership</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                {/* Checkboxes */}
-                <div className="space-y-3">
-
-                  <div className="flex items-start space-x-2">
-                    <Checkbox />
-                    <Label className="text-sm text-gray-600">
-                      I agree to the Terms and Privacy Policy of Nuru Njema Foundation
-                    </Label>
-                  </div>
-
-                  <div className="flex items-start space-x-2">
-                    <Checkbox />
-                    <Label className="text-sm text-gray-600">
-                      I want to receive updates about programs and opportunities
-                    </Label>
-                  </div>
-
+                <div>
+                  <Label>Email Address</Label>
+                  <Input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      handleInputChange(
+                        "email",
+                        e.target.value
+                      )
+                    }
+                    placeholder="example@email.com"
+                    required
+                  />
                 </div>
 
-                {/* Submit */}
-                <Button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
-                  Submit
+                <div>
+                  <Label>Phone Number</Label>
+                  <Input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      handleInputChange(
+                        "phone",
+                        e.target.value
+                      )
+                    }
+                    placeholder="+255 xxx xxx xxx"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label>Partnership Type</Label>
+
+                  <Select
+                    value={formData.type}
+                    onValueChange={(value) =>
+                      handleInputChange("type", value)
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select partnership type" />
+                    </SelectTrigger>
+
+                    <SelectContent>
+                      <SelectItem value="Sponsor">
+                        Sponsor
+                      </SelectItem>
+
+                      <SelectItem value="Training Partner">
+                        Training Partner
+                      </SelectItem>
+
+                      <SelectItem value="Technology Partner">
+                        Technology Partner
+                      </SelectItem>
+
+                      <SelectItem value="Volunteer">
+                        Volunteer
+                      </SelectItem>
+
+                      <SelectItem value="Mentor">
+                        Mentor
+                      </SelectItem>
+
+                      <SelectItem value="Other">
+                        Other
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-cyan-600 hover:bg-cyan-700"
+                >
+                  {loading
+                    ? "Submitting..."
+                    : "Submit Application"}
+
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-
               </form>
-
             </CardContent>
           </Card>
-
         </div>
       </div>
     </div>
-  )
+  );
 }

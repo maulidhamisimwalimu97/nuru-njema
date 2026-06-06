@@ -326,6 +326,55 @@ app.post("/api/auth/login", (req, res) => {
   });
 });
 
+app.post("/api/partners", (req, res) => {
+  const { name, email, phone, type } = req.body;
+
+  const sql =
+    "INSERT INTO partners (name, email, phone, type) VALUES (?, ?, ?, ?)";
+
+  db.query(sql, [name, email, phone, type], (err) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Database error",
+      });
+    }
+
+    res.json({
+      message: "Partner registered successfully",
+    });
+  });
+});
+
+app.post("/api/donors", (req, res) => {
+  const { name, email, amount } = req.body;
+
+  const sql = "INSERT INTO donors (name, email, amount,created_at) VALUES (?, ?, ?, ?)";
+
+  db.query(sql, [name, email, amount], (err, result) => {
+    if (err) return res.status(500).json(err);
+    res.json({ message: "Donation saved successfully" });
+  });
+});
+
+app.post("/api/messages", (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  const sql =
+    "INSERT INTO messages (name, email, subject, message, created_at) VALUES (?, ?, ?, ?, NOW())";
+
+  db.query(sql, [name, email, subject, message], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Database error" });
+    }
+
+    res.json({
+      message: "Message saved successfully",
+      success: true,
+    });
+  });
+});
+
 /* =========================
    START SERVER
 ========================= */
